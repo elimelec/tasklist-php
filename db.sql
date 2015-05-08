@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.0
+-- version 4.3.9
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 08, 2015 at 02:47 PM
+-- Generation Time: May 08, 2015 at 03:44 PM
 -- Server version: 5.5.42
--- PHP Version: 5.4.39
+-- PHP Version: 5.4.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -33,7 +33,18 @@ CREATE TABLE IF NOT EXISTS `lists` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `lists`
+--
+
+INSERT INTO `lists` (`id`, `name`, `user_id`) VALUES
+(1, 'Fruits', 2),
+(2, 'Movies', 2),
+(3, 'Anime', 1),
+(4, 'Pizza', 1),
+(5, 'Vegetables', 2);
 
 -- --------------------------------------------------------
 
@@ -47,7 +58,29 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `name` varchar(255) NOT NULL,
   `checked` tinyint(1) NOT NULL,
   `list_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `name`, `checked`, `list_id`) VALUES
+(1, 'Bananas', 0, 1),
+(2, 'Oranges', 0, 1),
+(3, 'Apples', 0, 1),
+(4, 'Pomegranate', 0, 1),
+(5, 'Revolver', 0, 2),
+(6, 'Hysteria', 1, 2),
+(7, 'Benjamin Buthon', 1, 2),
+(8, 'Atonement', 0, 2),
+(9, 'Dragon Ball', 0, 3),
+(10, 'One Piece', 0, 3),
+(11, 'Death Note', 1, 3),
+(12, 'Prosciutto', 0, 4),
+(13, 'Salami', 0, 4),
+(14, 'Capriciosa', 0, 4),
+(15, 'Potato', 0, 5),
+(16, 'Tomato', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -60,7 +93,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL,
   `user` varchar(31) NOT NULL,
   `password` varchar(63) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user`, `password`) VALUES
+(1, 'eli', 'eli'),
+(2, 'ela', 'ela');
 
 --
 -- Indexes for dumped tables
@@ -92,17 +133,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `lists`
 --
 ALTER TABLE `lists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
