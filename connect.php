@@ -6,6 +6,10 @@
 	$db = "pufulist";
 
 
-	$mysqli = mysqli_connect($host, $user, $password, $db) or die(mysqli_connect_error());
+	$mysqli = new mysqli($host, $user, $password, $db);
+
+	if($mysqli->connect_error) {
+		die(mysqli_connect_error());
+	}
 
 ?>
