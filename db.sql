@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 08, 2015 at 03:44 PM
+-- Generation Time: May 15, 2015 at 03:23 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.4.37
 
@@ -45,6 +45,19 @@ INSERT INTO `lists` (`id`, `name`, `user_id`) VALUES
 (3, 'Anime', 1),
 (4, 'Pizza', 1),
 (5, 'Vegetables', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+CREATE TABLE IF NOT EXISTS `sessions` (
+  `id` int(11) NOT NULL,
+  `token` varchar(32) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -114,6 +127,12 @@ ALTER TABLE `lists`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tasks`
 --
 ALTER TABLE `tasks`
@@ -134,6 +153,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `lists`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `sessions`
+--
+ALTER TABLE `sessions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tasks`
 --
