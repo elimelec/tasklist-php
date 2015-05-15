@@ -15,7 +15,7 @@
 			$checked = $row["checked"];
 
 			$checked_string = $checked == 0 ? "[ ]" : "[x]";
-			echo "$checked_string $name <a href='delete_task.php?task_id=$id'>[delete]</a> <br>";
+			echo "$checked_string $name <a href='edit_task.php?task_id=$id'>[edit]</a> <a href='delete_task.php?task_id=$id'>[delete]</a> <br>";
 
 		}
 	}
