@@ -16,9 +16,7 @@
 		while($row = $results->fetch_assoc()) {
 			$id = $row["id"];
 			$name = $row["name"];
-			$user = $row["user"];
 			echo "<a href='tasks.php?user_id=$user_id&list_id=$id'>$name</a><br>";
-
 		}
 	}
 ?>
