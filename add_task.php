@@ -8,8 +8,8 @@
 		$list_id = $_GET['list_id'];
 		$sql_add = "INSERT INTO tasks(name, checked, list_id) VALUES('$task_name', 0, $list_id)";
 		$added_task = $mysqli->query($sql_add);
-
-		echo "Task added!";
+		
+		header("Location: tasks.php?list_id=$list_id");
 	}
 
 	elseif (isset($_GET["list_id"])) {
