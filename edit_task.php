@@ -6,10 +6,14 @@
 
 		$task_name = $_GET['task_name'];
 		$task_id = $_GET['task_id'];
+		
+		$sql = "SELECT list_id FROM tasks WHERE id = $task_id";
+		$list_id = $mysqli->query($sql)->fetch_object()->list_id;
+
 		$sql_update = "UPDATE tasks SET name= '" . $task_name . "' WHERE id='" . $task_id. "'";
 		$edited_task = $mysqli->query($sql_update);
-
-		echo "Task updated!";
+		
+		header("Location: tasks.php?list_id=$list_id");
 	}
 
 	elseif(isset($_GET['task_id'])) {
