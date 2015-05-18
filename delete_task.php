@@ -5,13 +5,13 @@
 	if (isset($_GET['task_id'])) {
 		$task_id = $_GET['task_id'];
 
-		$sql_select_task = "SELECT name FROM tasks WHERE id = " . $task_id;
-		$task_name = $mysqli->query($sql_select_task)->fetch_object()->name;
+		$sql_select_task = "SELECT list_id FROM tasks WHERE id = " . $task_id;
+		$list_id = $mysqli->query($sql_select_task)->fetch_object()->list_id;
 
 		$sql_delete_task = "DELETE FROM tasks WHERE id =" .$task_id;
 		$delete_result = $mysqli->query($sql_delete_task);
-
-		echo "Task with name $task_name was deleted";
+		
+		header("Location: tasks.php?list_id=$list_id");
 
 	}
 
