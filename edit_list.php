@@ -29,8 +29,8 @@
 			<input id="list_name" type="text" name="list_name" value="<?php echo $list_name; ?>">
 			<input type="submit" name="submit" value="Ok">
 		</form>
-		
+
 		<?php
-	}		
-	
+	}
+
 ?>
