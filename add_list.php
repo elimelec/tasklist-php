@@ -6,10 +6,14 @@
 
 		$list_name = $_GET['list_name'];
 		$user_id = $_GET['user_id'];
+
+		$sql_select_list = "SELECT user FROM users WHERE id = $user_id";
+		$username = $mysqli->query($sql_select_list)->fetch_object()->user;
+
 		$sql_add = "INSERT INTO lists(name, user_id) VALUES('$list_name', $user_id)";
 		$added_list = $mysqli->query($sql_add);
 
-		echo "List added!";
+		header("Location: lists.php?username=$username");
 	}
 
 	elseif (isset($_GET["user_id"])) {
