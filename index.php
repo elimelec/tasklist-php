@@ -22,11 +22,11 @@
 			<label for="username">Username: </label>
 			<input id="username" type="text" name="username"> <br>
 			<label for="password">Password: </label>
-			<input id="password" type="text" name="password"> <br>
+			<input id="password" type="password" name="password"> <br>
 			<label for="check_password">Check password: </label>
-			<input id="check_password" type="text" name="check_password"> <br>
+			<input id="check_password" type="password" name="check_password"> <br>
 			<input type="submit" value="Sign Up">
-		</form>	
+		</form>
 
 	</body>
 </html>
