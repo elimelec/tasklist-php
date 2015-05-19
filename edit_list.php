@@ -6,10 +6,14 @@
 
 		$list_name = $_GET['list_name'];
 		$list_id = $_GET['list_id'];
+
+		$sql_select_list = " SELECT user FROM lists JOIN users ON users.id = user_id WHERE lists.id = $list_id";
+		$username = $mysqli->query($sql_select_list)->fetch_object()->user;
+
 		$sql_update = "UPDATE lists SET name= '" . $list_name . "' WHERE id='" . $list_id. "'";
 		$edited_list = $mysqli->query($sql_update);
 
-		echo "List updated!";
+		header("Location: lists.php?username=$username");
 	}
 
 	elseif(isset($_GET['list_id'])) {
