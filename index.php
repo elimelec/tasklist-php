@@ -25,13 +25,13 @@
 		</form>
 
 		<h3> Sign Up </h3>
-		<form action="lists.php" method="GET">
+		<form action="signup.php" method="POST">
 			<label for="username">Username: </label>
 			<input id="username" type="text" name="username"> <br>
-			<label for="username">Password: </label>
+			<label for="password">Password: </label>
 			<input id="password" type="text" name="password"> <br>
-			<label for="username">Password: </label>
-			<input id="password" type="text" name="password"> <br>
+			<label for="check_password">Check password: </label>
+			<input id="check_password" type="text" name="check_password"> <br>
 			<input type="submit" value="Sign Up">
 		</form>	
 
