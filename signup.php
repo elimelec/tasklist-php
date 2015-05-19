@@ -1,7 +1,6 @@
-	<?php
+<?php
 
 	include "connect.php";
-
 
 	function checkSignUpData() {
 		return
@@ -35,7 +34,9 @@
 
 			$sql_insert = "INSERT INTO sessions(token, user_id) VALUES ('$hash', $user_id)";
 			$mysqli->query($sql_insert);
-			$_COOKIE['token'] = $hash;
+			session_id($hash);
+			session_start();
+			session_commit();
 			header("Location: lists.php?username=$username");
 		}
 		else {
