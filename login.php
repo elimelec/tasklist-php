@@ -18,6 +18,8 @@
 		if ($number_of_rows === 1) {
 			$sql_insert = "INSERT INTO sessions(token, user_id) VALUES ('$hash', $user_id)";
 			$mysqli->query($sql_insert);
+			$_COOKIE['token'] = $hash;
+			header("Location: lists.php?username=$username");
 		}
 		else {
 			echo "Check you login data";
