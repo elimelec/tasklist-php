@@ -37,7 +37,7 @@
 			session_id($hash);
 			session_start();
 			session_commit();
-			header("Location: lists.php?username=$username");
+			header("Location: lists.php");
 		}
 		else {
 			echo "Check you login data";

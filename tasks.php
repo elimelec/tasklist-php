@@ -6,13 +6,10 @@
 
 		$list_id = $_GET["list_id"];
 
-		$sql = "SELECT user FROM lists JOIN users ON user_id = users.id WHERE lists.id = $list_id";
-		$username = $mysqli->query($sql)->fetch_object()->user;
-
 		$sql_select_tasks = "SELECT id, name, checked FROM tasks WHERE list_id = " . $list_id;
 		$results = $mysqli->query($sql_select_tasks);
 
-		echo "<a href='lists.php?username=$username'>[home]</a><br>";
+		echo "<a href='lists.php'>[home]</a><br>";
 		echo "<a href='add_task.php?list_id=$list_id'>[add new task]</a> <br>";
 		while($row = $results->fetch_assoc()) {
 			$id = $row["id"];
