@@ -7,7 +7,7 @@
 
 		$username = $_GET["username"];
 
-		$sql_select = "SELECT id FROM users WHERE user = '" . $username . "'";				
+		$sql_select = "SELECT id FROM users WHERE user = '" . $username . "'";
 		$user_id = $mysqli->query($sql_select)->fetch_object()->id;
 
 		$sql_select_lists = "SELECT id, name FROM lists WHERE user_id = " . $user_id;
