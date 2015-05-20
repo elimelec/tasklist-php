@@ -1,0 +1,62 @@
+header {
+    font-family: "Buxton Sketch", Helvetica, Verdana, Arial, serif;
+    height: 100px;
+    background-color: #3a5795;
+    color: #ded51f;
+    font-size: 55px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.content {
+    margin: 32px auto 32px auto;
+    padding: 32px;
+    width: 800px;
+    font-family: Verdana, serif;
+    font-size: 18px;
+}
+
+.shadow-border {
+    box-shadow: 0 0 8px #888;
+}
+
+.shadow-border--big {
+    box-shadow: 0 2px 16px #333;
+}
+
+.shadow-border--small {
+    box-shadow: 0 0 4px #888;
+}
+
+input[type=submit] {
+    font-family: Helvetica, serif;
+    font-size: 16px;
+    color: #fff;
+    background: #67ae55;
+    text-align: center;
+    border: 0;
+}
+
+.button--medium {
+    width: 100px;
+    height: 100px;
+}
+
+.button--small {
+    width: 75px;
+    height: 75px;
+}
+
+.button--round {
+    border-radius: 1024px;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: row;
+}
+
+.login-page .login, .login-page .register {
+    flex-grow: 1;
+    margin: auto;
+}
