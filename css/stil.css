@@ -1,0 +1,77 @@
+#wrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#header {
+	font-family: "Buxton Sketch", Verdana, Arial;
+	font-size: 50px;
+	padding: 6px;
+	text-align: center;
+	padding: 40px;
+	color: #3a5795;
+}
+
+#main {
+	width: 840px;
+	margin-left: 10px;
+	font-family: Verdana, "Comic Sans ms";
+	font-size: 20px;
+	float: left;
+	border-left:3px dashed #CCCCCC;
+ 	border-right:3px dashed #CCCCCC;
+ 	padding: 10px;
+}
+
+#navigation {
+	width: 110px;
+	height: 160px;
+	float: left;
+	background-color: #7589B5;
+}
+
+#navblock {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#footer {
+	width: 998px;
+	text-align: center;
+	clear: both;
+	padding-top: 47px;
+	padding-bottom: 35px;
+}
+
+#navigation li a:link, #navigation li a:visited {
+	text-decoration: none;
+	background-color: #3a5795;
+	font-family: "Buxton Sketch", Helvetica, Verdana;
+	font-size: 27px;
+	padding: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 2px;
+	margin-top: 7px;
+	display: block;
+	text-align: center;
+	border-radius: 12px;
+	color: #DED51F;
+	width: 90px;
+}
+
+#navigation li a:hover{
+	text-decoration: none;
+	margin-left: 5px;
+	background-color: #2E4677;
+}
+
+
+p {
+	text-indent: 25px;
+}
+body {
+    width: 800px;
+    margin: auto;
+}
