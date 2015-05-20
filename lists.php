@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" type="text/css" href="css/theme.css">
-		<title>Lists</title>
-	</head>
-
-	<body>
-	<div class="wrapper">
-
 <?php
 
-	include_once "session.php";
-	include_once "connect.php";
+include_once "session.php";
+include_once "connect.php";
+
+include_once "page.php";
+
+
+
+
+
+page_header();
+?>
+
+<?php
 
 	if ($is_logged) {
 		$sql_username = "SELECT user FROM users WHERE id = $user_id";
@@ -52,9 +52,7 @@
 ?>
 			</div>
 	</div>
-	</div>
-	</body>
 
-
-
-</html>
+<?php
+page_footer();
+?>
