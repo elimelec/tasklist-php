@@ -13,9 +13,9 @@
 				<div class="login">
 					<h4>Already have an account?</h4>
 					<form action="login.php" method="POST">
-						<input id="username" type="text" name="username" placeholder="User">
+						<input type="text" name="username" placeholder="User">
 						<br>
-						<input id="password" type="password" name="password" placeholder="Password">
+						<input type="password" name="password" placeholder="Password">
 						<br>
 						<input class="shadow-border button--round button--small" type="submit" value="Login">
 					</form>
