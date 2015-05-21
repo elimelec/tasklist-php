@@ -85,10 +85,6 @@ input[type=submit], button {
   text-align: center;
 }
 
-.new-list {
-
-}
-
 .lists {
   transition: 1 background linear;
 }

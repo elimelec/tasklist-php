@@ -5,22 +5,17 @@ include_once "connect.php";
 
 include_once "page.php";
 
-if ($is_logged) {
-	$sql_username = "SELECT user FROM users WHERE id = $user_id";
-	$username = $mysqli->query($sql_username)->fetch_object()->user;
+$sql_username = "SELECT user FROM users WHERE id = $user_id";
+$username = $mysqli->query($sql_username)->fetch_object()->user;
 
-	$sql_select_lists = "SELECT id, name FROM lists WHERE user_id = " . $user_id;
-	$results = $mysqli->query($sql_select_lists);
-}
-else {
-	header("Location: /");
-}
+$sql_select_lists = "SELECT id, name FROM lists WHERE user_id = " . $user_id;
+$results = $mysqli->query($sql_select_lists);
 
 page_header("Lists");
 ?>
 
 <div class="content shadow-border">
-		<div class="new-list center">
+		<div class="center">
 				<form action="<?="add_list.php"?>" method="POST">
 					<input type="text" name="list_name" placeholder="List name">
 					<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
