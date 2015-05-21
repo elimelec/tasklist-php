@@ -19,6 +19,11 @@ page_header("Tasks");
 ?>
 
 <div class="content shadow-border">
+	<div>
+		<a href="lists.php">
+			<button class="shadow-border--small">All Lists</button>
+		</a>
+	</div>
 	<div class="center">
 			<form action="<?="add_task.php"?>" method="POST">
 				<input type="hidden" name="list_id" value="<?=$list_id?>">
