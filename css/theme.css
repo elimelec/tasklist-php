@@ -42,8 +42,8 @@ input {
     padding: 0 8px 0 8px;
 }
 
-input[type=submit] {
-    margin: 8px 0 8px 256px;
+input[type=submit].right {
+    margin-left: 256px;
 }
 
 input[type=submit], button {
@@ -53,6 +53,7 @@ input[type=submit], button {
     background: #67ae55;
     text-align: center;
     border: 0;
+    margin: 8px;
 }
 
 .button--medium {

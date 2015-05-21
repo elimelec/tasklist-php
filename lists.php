@@ -38,7 +38,7 @@ page_header();
 							<?=$name?>
 						</span>
 						<a href="tasks.php?list_id=<?=$id?>">
-							<button class="button--round button--small">Show</button>
+							<button >Show</button>
 						</a>
 						<a href="edit_list.php?list_id=<?=$id?>">
 							<button class="button--round button--small">Edit</button>

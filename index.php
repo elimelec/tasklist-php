@@ -13,7 +13,7 @@ page_header();
 			<br>
 			<input type="password" name="password" placeholder="Password">
 			<br>
-			<input class="shadow-border button--round button--small" type="submit" value="Login">
+			<input class="shadow-border button--round button--small right" type="submit" value="Login">
 		</form>
 	</div>
 
@@ -26,7 +26,7 @@ page_header();
 			<br>
 			<input id="check_password" type="text" name="check_password" placeholder="Check Password">
 			<br>
-			<input class="shadow-border button--round button--small" type="submit" value="Sign Up">
+			<input class="shadow-border button--round button--small right" type="submit" value="Sign Up">
 		</form>
 	</div>
 </div>
