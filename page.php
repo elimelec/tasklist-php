@@ -50,3 +50,36 @@ function page_tasks_task_item($id, $name, $checked) {
 		</div>
 	<?php
 }
+
+
+function page_lists_menu() {
+	?>
+		<div class="center">
+			<form action="add_list.php" method="POST">
+				<input type="text" name="list_name" placeholder="List name">
+				<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
+			</form>
+		</div>
+	<?php
+}
+
+function page_tasks_menu($list_id) {
+	?>
+		<div class="center">
+			<div class="flex">
+				<div class="all-lists">
+					<a href="lists.php">
+						<button class="shadow-border button--round button--small">All Lists</button>
+					</a>
+				</div>
+				<div class="new-task">
+					<form action="add_task.php" method="POST">
+						<input type="hidden" name="list_id" value="<?=$list_id?>">
+						<input type="text" name="task_name" placeholder="Task name">
+						<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
+					</form>
+				</div>
+			</div>
+		</div>
+	<?php
+}
