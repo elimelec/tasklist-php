@@ -5,7 +5,7 @@ page_header();
 
 ?>
 
-<div class="content login-page shadow-border">
+<div class="content flex shadow-border">
 	<div class="login">
 		<h4>Already have an account?</h4>
 		<form action="login.php" method="POST">
