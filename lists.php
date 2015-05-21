@@ -19,15 +19,15 @@ else {
 page_header("Lists");
 ?>
 
-<div class="content shadow-border center">
-		<div class="new-list">
+<div class="content shadow-border">
+		<div class="new-list center">
 				<form action="<?="add_list.php"?>" method="POST">
 					<input type="text" name="list_name" placeholder="List name">
 					<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
 				</form>
 		</div>
 
-		<div class="paper">
+		<div class="lists">
 			<?php
 				while($row = $results->fetch_assoc()) {
 					$id = $row["id"];

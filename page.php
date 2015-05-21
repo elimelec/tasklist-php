@@ -10,7 +10,7 @@ function page_footer() {
 
 function page_lists_list_item($id, $name) {
 	?>
-		<div class="list-item">
+		<div class="list-item flex">
 			<span class="list-item--name">
 				<?=$name?>
 			</span>
@@ -18,10 +18,10 @@ function page_lists_list_item($id, $name) {
 				<button >Show</button>
 			</a>
 			<a href="edit_list.php?list_id=<?=$id?>">
-				<button class="button--round button--small">Edit</button>
+				<button>Edit</button>
 			</a>
 			<a href="delete_list.php?list_id=<?=$id?>">
-				<button class="button--round button--small">Delete</button>
+				<button>Delete</button>
 			</a>
 		</div>
 	<?php

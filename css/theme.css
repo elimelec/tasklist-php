@@ -74,7 +74,6 @@ input[type=submit], button {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: baseline;
 }
 
 .login-page .login, .login-page .register {
@@ -90,10 +89,22 @@ input[type=submit], button {
 
 }
 
-.list-item {
+.lists {
+  transition: 1 background linear;
+}
 
+.list-item {
+  width: 800px;
+  margin: auto;
+  padding: 0 16px 0 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.list-item:hover {
+  background-color: #eee;
 }
 
 .list-item--name {
-
+  flex-grow: 1;
+  margin: auto;
 }
