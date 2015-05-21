@@ -20,7 +20,7 @@ page_header();
 ?>
 
 <div class="content shadow-border center">
-		<div class="whatever">
+		<div class="new-list">
 				<form action="<?="add_list.php"?>" method="POST">
 					<input type="text" name="list_name" placeholder="List name">
 					<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
@@ -32,7 +32,22 @@ page_header();
 				while($row = $results->fetch_assoc()) {
 					$id = $row["id"];
 					$name = $row["name"];
-					echo "<p> $name <a href='tasks.php?list_id=$id'>[show tasks]</a> <a href='edit_list.php?list_id=$id'>[edit]</a> <a href='delete_list.php?list_id=$id'>[delete]</a> </p>";
+			?>
+					<div class="list-item">
+						<span class="list-item--name">
+							<?=$name?>
+						</span>
+						<a href="tasks.php?list_id=<?=$id?>">
+							<button class="button--round button--small">Show</button>
+						</a>
+						<a href="edit_list.php?list_id=<?=$id?>">
+							<button class="button--round button--small">Edit</button>
+						</a>
+						<a href="delete_list.php?list_id=<?=$id?>">
+							<button class="button--round button--small">Delete</button>
+						</a>
+					</div>
+			<?php
 				}
 			?>
 		</div>

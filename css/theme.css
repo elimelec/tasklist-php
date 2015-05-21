@@ -8,6 +8,14 @@ header {
     padding-top: 30px;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+
+}
+
 .content {
     margin: 64px auto 32px auto;
     padding: 32px;
@@ -35,13 +43,16 @@ input {
 }
 
 input[type=submit] {
+    margin: 8px 0 8px 256px;
+}
+
+input[type=submit], button {
     font-family: Helvetica, serif;
     font-size: 16px;
     color: #fff;
     background: #67ae55;
     text-align: center;
     border: 0;
-    margin: 8px 0 8px 256px;
 }
 
 .button--medium {
@@ -72,4 +83,16 @@ input[type=submit] {
 
 .center {
   text-align: center;
+}
+
+.new-list {
+
+}
+
+.list-item {
+
+}
+
+.list-item--name {
+
 }
