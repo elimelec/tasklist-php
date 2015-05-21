@@ -55,10 +55,17 @@ function page_tasks_task_item($id, $name, $checked) {
 function page_lists_menu() {
 	?>
 		<div class="center">
-			<form action="add_list.php" method="POST">
-				<input type="text" name="list_name" placeholder="List name">
-				<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
-			</form>
+			<div class="flex">
+				<div class="new-task">
+					<form action="add_list.php" method="POST">
+						<input type="text" name="list_name" placeholder="List name">
+						<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
+					</form>
+				</div>
+				<?php
+					page_menu_logout_button();
+				?>
+			</div>
 		</div>
 	<?php
 }
@@ -79,7 +86,20 @@ function page_tasks_menu($list_id) {
 						<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
 					</form>
 				</div>
+				<?php
+					page_menu_logout_button();
+				?>
 			</div>
+		</div>
+	<?php
+}
+
+function page_menu_logout_button() {
+	?>
+		<div class="logout">
+			<a href="/">
+				<button class="shadow-border button--round button--small">Logout</button>
+			</a>
 		</div>
 	<?php
 }
