@@ -97,7 +97,7 @@ function page_tasks_menu($list_id) {
 function page_menu_logout_button() {
 	?>
 		<div class="logout">
-			<a href="/">
+			<a href="logout.php">
 				<button class="shadow-border button--round button--small">Logout</button>
 			</a>
 		</div>
