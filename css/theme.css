@@ -1,15 +1,15 @@
 header {
-    font-family: "Buxton Sketch", Helvetica, Verdana, Arial, serif;
-    height: 100px;
-    background-color: #3a5795;
-    color: #ded51f;
-    font-size: 55px;
-    text-align: center;
-    padding-top: 30px;
+	font-family: "Buxton Sketch", Helvetica, Verdana, Arial, serif;
+	height: 100px;
+	background-color: #3a5795;
+	color: #ded51f;
+	font-size: 55px;
+	text-align: center;
+	padding-top: 30px;
 }
 
 a:link {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 a:visited {
@@ -17,96 +17,92 @@ a:visited {
 }
 
 .content {
-    margin: 64px auto 32px auto;
-    padding: 32px;
-    width: 1000px;
-    font-family: Verdana, serif;
-    font-size: 18px;
+	margin: 64px auto 32px auto;
+	padding: 32px;
+	width: 1000px;
+	font-family: Verdana, serif;
+	font-size: 18px;
 }
 
 .shadow-border {
-    box-shadow: 0 0 8px #888;
+	box-shadow: 0 0 8px #888;
 }
 
 .shadow-border--big {
-    box-shadow: 0 2px 16px #333;
+	box-shadow: 0 2px 16px #333;
 }
 
 .shadow-border--small {
-    box-shadow: 0 0 4px #888;
+	box-shadow: 0 0 4px #888;
 }
 
 input {
-    height: 32px;
-    width: 256px;
-    padding: 0 8px 0 8px;
+	height: 32px;
+	width: 256px;
+	padding: 0 8px 0 8px;
 }
 
 input[type=submit].right {
-    margin-left: 256px;
+	margin-left: 256px;
 }
 
 input[type=submit], button {
-    font-family: Helvetica, serif;
-    font-size: 16px;
-    color: #fff;
-    background: #67ae55;
-    text-align: center;
-    border: 0;
-    margin: 8px;
+	font-family: Helvetica, serif;
+	font-size: 16px;
+	color: #fff;
+	background: #67ae55;
+	text-align: center;
+	border: 0;
+	margin: 8px;
 }
 
 .button--medium {
-    width: 100px;
-    height: 100px;
+	width: 100px;
+	height: 100px;
 }
 
 .button--small {
-    width: 75px;
-    height: 75px;
+	width: 75px;
+	height: 75px;
 }
 
 .button--round {
-    border-radius: 1024px;
+	border-radius: 1024px;
 }
 
 .flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 .login-page .login, .login-page .register {
-    text-align: center;
-    margin: auto;
+	text-align: center;
+	margin: auto;
 }
 
 .center {
-  text-align: center;
-}
-
-.lists {
-  transition: 1 background linear;
+	text-align: center;
 }
 
 .list-item {
-  width: 800px;
-  margin: auto;
-  padding: 0 16px 0 16px;
-  border-bottom: 1px solid #eee;
+	width: 800px;
+	margin: auto;
+	padding: 0 16px 0 16px;
+	border-bottom: 1px solid #eee;
+	transition: all 0.1s linear;
 }
 
 .list-item:hover {
-  background-color: #eee;
-  box-shadow: 0 0 4px #888;
+	background-color: #eee;
+	box-shadow: 0 0 4px #888;
 }
 
 .list-item--name {
-  flex-grow: 1;
-  margin: auto;
+	flex-grow: 1;
+	margin: auto;
 }
 
 .list-item--checkbox {
-  margin: auto;
-  margin-right: 8px;
+	margin: auto 8px auto auto;
 }
