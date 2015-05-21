@@ -19,11 +19,11 @@ else {
 page_header();
 ?>
 
-<div class="content">
+<div class="content shadow-border center">
 		<div class="whatever">
 				<form action="<?="add_list.php"?>" method="POST">
 					<input type="text" name="list_name" placeholder="List name">
-					<input class="button" type="submit" name="save" value="New">
+					<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
 				</form>
 		</div>
 
