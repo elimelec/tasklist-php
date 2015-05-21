@@ -18,13 +18,7 @@ $results = $mysqli->query($sql_select_tasks);
 page_header("Tasks");
 ?>
 
-<div class="content">
-	<div class="whatever">
-			<form action="<?php echo "lists.php"; ?>" method="POST">
-			<input class="button_home" type="submit" value="[home]"></form>
-			<form action="<?php echo "add_task.php?list_id= '" . $list_id . "' "; ?>" method="POST">
-			<input class="button" type="submit" value="[add new task]"></form>
-	</div>
+<div class="content shadow-border">
 	<div class="center">
 			<form action="<?="add_task.php"?>" method="POST">
 				<input type="hidden" name="list_id" value="<?=$list_id?>">
@@ -32,18 +26,16 @@ page_header("Tasks");
 				<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
 			</form>
 	</div>
-	<div class="paper">
+	<div class="lists">
 		<?php
 			while($row = $results->fetch_assoc()) {
 				$id = $row["id"];
 				$name = $row["name"];
 				$checked = $row["checked"];
 
-				$checked_string = $checked == 0 ? "[ ]" : "[x]";
-				echo "<p> $checked_string $name <a href='check_task.php?task_id=$id'> [check/uncheck] </a> <a href='edit_task.php?task_id=$id'>[edit]</a> <a href='delete_task.php?task_id=$id'>[delete]</a> </p>";
-
-				}
-			?>
+				page_tasks_task_item($id, $name, $checked);
+			}
+		?>
 	</div>
 </div>
 
