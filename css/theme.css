@@ -106,3 +106,12 @@ input[type=submit], button {
 .list-item--checkbox {
 	margin: auto 8px auto auto;
 }
+
+.all-lists {
+	flex-grow: 0;
+	margin: auto;
+}
+
+.new-task {
+	flex-grow: 1;
+}

@@ -19,17 +19,21 @@ page_header("Tasks");
 ?>
 
 <div class="content shadow-border">
-	<div>
-		<a href="lists.php">
-			<button class="shadow-border--small">All Lists</button>
-		</a>
-	</div>
 	<div class="center">
-			<form action="<?="add_task.php"?>" method="POST">
-				<input type="hidden" name="list_id" value="<?=$list_id?>">
-				<input type="text" name="task_name" placeholder="Task name">
-				<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
-			</form>
+		<div class="flex">
+			<div class="all-lists">
+				<a href="lists.php">
+					<button class="shadow-border button--round button--small">All Lists</button>
+				</a>
+			</div>
+			<div class="new-task">
+				<form action="add_task.php" method="POST">
+					<input type="hidden" name="list_id" value="<?=$list_id?>">
+					<input type="text" name="task_name" placeholder="Task name">
+					<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
+				</form>
+			</div>
+		</div>
 	</div>
 	<div class="lists">
 		<?php
