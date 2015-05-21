@@ -3,7 +3,7 @@
 include_once "session.php";
 include_once "connect.php";
 
-$sql = "DELETE FROM sessions WHERE token = '$sesion_token'";
+$sql = "DELETE FROM sessions WHERE token = '$session_token'";
 $mysqli->query($sql);
 
 session_destroy();

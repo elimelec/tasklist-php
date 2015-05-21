@@ -3,9 +3,9 @@
 include_once "connect.php";
 
 session_start();
-$sesion_token = session_id();
+$session_token = session_id();
 
-$sql = "SELECT * FROM sessions WHERE token = '$sesion_token'";
+$sql = "SELECT * FROM sessions WHERE token = '$session_token'";
 $result = $mysqli->query($sql);
 
 $user_id = 0;
