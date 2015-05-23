@@ -24,9 +24,14 @@
 		query($sql);
 	}
 
+	function get_lists($user_id) {
+		$sql = "SELECT id, name FROM lists WHERE user_id = $user_id";
+		return query($sql);
+	}
+
 	function query($sql) {
 		global $link;
-		mysqli_query($link, $sql);
+		return mysqli_query($link, $sql);
 	}
 
 ?>

@@ -5,8 +5,7 @@ include_once "sql.php";
 
 include_once "page.php";
 
-$sql_select_lists = "SELECT id, name FROM lists WHERE user_id = $user_id";
-$results = mysqli_query($link, $sql_select_lists);
+$results = get_lists($user_id);
 
 page_header("Lists");
 ?>
