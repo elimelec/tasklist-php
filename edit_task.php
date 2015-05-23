@@ -28,9 +28,9 @@
 		?>
 
 		<form method="GET">
-			<input type="hidden" name = "task_id" value="<?php echo $task_id; ?>">
+			<input type="hidden" name = "task_id" value="<?=$task_id?>">
 			<label for="task_name">Task name: </label>
-			<input id="task_name" type="text" name="task_name" value="<?php echo $task_name; ?>">
+			<input id="task_name" type="text" name="task_name" value="<?=$task_name?>">
 			<input type="submit" name="submit" value="Ok">
 		</form>
 

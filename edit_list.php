@@ -28,9 +28,9 @@
 		?>
 
 		<form method="GET">
-			<input type="hidden" name = "list_id" value="<?php echo $list_id; ?>">
+			<input type="hidden" name = "list_id" value="<?=$list_id?>">
 			<label for="list_name">List name: </label>
-			<input id="list_name" type="text" name="list_name" value="<?php echo $list_name; ?>">
+			<input id="list_name" type="text" name="list_name" value="<?=$list_name?>">
 			<input type="submit" name="submit" value="Ok">
 		</form>
 
