@@ -12,17 +12,20 @@
 	}
 
 	function add_list($list_name, $user_id) {
-		global $link;
 		$sql = "INSERT INTO lists(name, user_id) VALUES('$list_name', $user_id)";
-		mysqli_query($link, $sql);
+		query($sql);
 	}
 
 	function delete_list($list_id) {
-		global $link;
 		$sql = "DELETE FROM tasks WHERE list_id = $list_id";
-		mysqli_query($link, $sql);
+		query($sql);
 
 		$sql = "DELETE FROM lists WHERE id = $list_id";
+		query($sql);
+	}
+
+	function query($sql) {
+		global $link;
 		mysqli_query($link, $sql);
 	}
 
