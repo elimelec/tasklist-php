@@ -5,11 +5,16 @@
 	$user = "root";
 	$db = "pufulist";
 
-
 	$link = mysqli_connect($host, $user, $password, $db);
 
 	if (mysqli_connect_errno()) {
 		die(mysqli_connect_error());
+	}
+
+	function add_list($list_name, $user_id) {
+		global $link;
+		$sql = "INSERT INTO lists(name, user_id) VALUES('$list_name', $user_id)";
+		mysqli_query($link, $sql);
 	}
 
 ?>
