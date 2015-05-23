@@ -23,9 +23,9 @@ page_header();
 		<form action="signup.php" method="POST">
 			<input id="username" type="text" name="username" placeholder="User">
 			<br>
-			<input id="password" type="text" name="password" placeholder="Password">
+			<input id="password" type="password" name="password" placeholder="Password">
 			<br>
-			<input id="check_password" type="text" name="check_password" placeholder="Check Password">
+			<input id="check_password" type="password" name="check_password" placeholder="Check Password">
 			<br>
 			<input class="shadow-border button--round button--small right" type="submit" value="Sign Up">
 		</form>
