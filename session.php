@@ -6,7 +6,7 @@ session_start();
 $session_token = session_id();
 
 $sql = "SELECT * FROM sessions WHERE token = '$session_token'";
-$result = $mysqli->query($sql);
+$result = mysqli_query($link, $sql);
 
 $user_id = 0;
 

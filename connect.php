@@ -6,9 +6,9 @@
 	$db = "pufulist";
 
 
-	$mysqli = new mysqli($host, $user, $password, $db);
+	$link = mysqli_connect($host, $user, $password, $db);
 
-	if($mysqli->connect_error) {
+	if (mysqli_connect_errno()) {
 		die(mysqli_connect_error());
 	}
 

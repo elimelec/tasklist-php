@@ -9,15 +9,14 @@
 		$hash = md5($username . $password . time());
 
 		$sql = "select * from users where user = '$username' and password = '$password'";
-		$number_of_rows = $mysqli->query($sql)->num_rows;
+		$number_of_rows = mysqli_query($link, $sql)->num_rows;
 
 		$sql_select = "SELECT id FROM users WHERE user = '$username'";
-		$user_id = $mysqli->query($sql_select)->fetch_object()->id;
-
+		$user_id = mysqli_query($link, $sql_select)->fetch_object()->id;
 
 		if ($number_of_rows === 1) {
 			$sql_insert = "INSERT INTO sessions(token, user_id) VALUES ('$hash', $user_id)";
-			$mysqli->query($sql_insert);
+			mysqli_query($link, $sql_insert);
 			session_id($hash);
 			session_start();
 			session_commit();

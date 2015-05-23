@@ -6,10 +6,10 @@ include_once "connect.php";
 include_once "page.php";
 
 $sql_username = "SELECT user FROM users WHERE id = $user_id";
-$username = $mysqli->query($sql_username)->fetch_object()->user;
+$username = mysqli_query($link, $sql_username)->fetch_object()->user;
 
 $sql_select_lists = "SELECT id, name FROM lists WHERE user_id = " . $user_id;
-$results = $mysqli->query($sql_select_lists);
+$results = mysqli_query($link, $sql_select_lists);
 
 page_header("Lists");
 ?>

@@ -8,10 +8,10 @@
 		$list_id = $_GET['list_id'];
 
 		$sql_select_list = " SELECT user FROM lists JOIN users ON users.id = user_id WHERE lists.id = $list_id";
-		$username = $mysqli->query($sql_select_list)->fetch_object()->user;
+		$username = mysqli_query($link, $sql_select_list)->fetch_object()->user;
 
 		$sql_update = "UPDATE lists SET name= '" . $list_name . "' WHERE id='" . $list_id. "'";
-		$edited_list = $mysqli->query($sql_update);
+		$edited_list = mysqli_query($link, $sql_update);
 
 		header("Location: lists.php?username=$username");
 	}
@@ -20,7 +20,7 @@
 
 			$list_id = $_GET['list_id'];
 			$sql_select_list_name = "SELECT name FROM lists where lists.id = '" . $list_id . "'";
-			$list_name = $mysqli->query($sql_select_list_name)->fetch_object()->name;
+			$list_name = mysqli_query($link, $sql_select_list_name)->fetch_object()->name;
 		?>
 
 		<form method="GET">

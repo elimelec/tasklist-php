@@ -8,7 +8,7 @@ if(isset($_POST['save'])) {
 	$list_id = $_POST['list_id'];
 
 	$sql_add = "INSERT INTO tasks(name, checked, list_id) VALUES('$task_name', 0, $list_id)";
-	$added_task = $mysqli->query($sql_add);
+	$added_task = mysqli_query($link, $sql_add);
 }
 
 header("Location: tasks.php?list_id=" . intval($list_id));

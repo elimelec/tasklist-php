@@ -13,7 +13,7 @@ if (!isset($_GET['list_id'])) {
 
 $list_id = $_GET['list_id'];
 $sql_select_tasks = "SELECT id, name, checked FROM tasks WHERE list_id = " . $list_id;
-$results = $mysqli->query($sql_select_tasks);
+$results = mysqli_query($link, $sql_select_tasks);
 
 page_header("Tasks");
 ?>

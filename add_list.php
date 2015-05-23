@@ -9,7 +9,7 @@ if(isset($_POST['save'])) {
 
 	if ($list_name !== "") {
 		$sql_add = "INSERT INTO lists(name, user_id) VALUES('$list_name', $user_id)";
-		$added_list = $mysqli->query($sql_add);
+		$added_list = mysqli_query($link, $sql_add);
 	}
 }
 
