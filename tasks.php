@@ -24,7 +24,7 @@ page_header("Tasks");
 	?>
 	<div class="lists">
 		<?php
-			while($row = $results->fetch_assoc()) {
+			while($row = mysqli_fetch_assoc($results)) {
 				$id = $row["id"];
 				$name = $row["name"];
 				$checked = $row["checked"];

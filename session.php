@@ -7,10 +7,11 @@ $session_token = session_id();
 
 $sql = "SELECT * FROM sessions WHERE token = '$session_token'";
 $result = mysqli_query($link, $sql);
+$num_rows = mysqli_num_rows($result);
 
 $user_id = 0;
 
-$num_rows = $result->num_rows;
+$num_rows = mysqli_num_rows($result);
 if ($_SERVER['SCRIPT_NAME'] == "/index.php") {
   if ($num_rows === 1) {
     header("Location: lists.php");
@@ -18,7 +19,8 @@ if ($_SERVER['SCRIPT_NAME'] == "/index.php") {
 }
 else {
   if ($num_rows === 1) {
-    $user_id = $result->fetch_object()->user_id;
+    $object = mysqli_fetch_object($result);
+    $user_id = $object->user_id;
   }
   else {
     header("Location: /");

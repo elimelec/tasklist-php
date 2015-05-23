@@ -7,20 +7,24 @@
 		$list_name = $_GET['list_name'];
 		$list_id = $_GET['list_id'];
 
-		$sql_select_list = " SELECT user FROM lists JOIN users ON users.id = user_id WHERE lists.id = $list_id";
-		$username = mysqli_query($link, $sql_select_list)->fetch_object()->user;
+		$sql_select_list = "SELECT user FROM lists JOIN users ON users.id = user_id WHERE lists.id = $list_id";
+		$result = mysqli_query($link, $sql_select_list);
+		$result = mysqli_fetch_object($result);
+		$username = $result->user;
 
-		$sql_update = "UPDATE lists SET name= '" . $list_name . "' WHERE id='" . $list_id. "'";
-		$edited_list = mysqli_query($link, $sql_update);
+		$sql_update = "UPDATE lists SET name = '$list_name' WHERE id = $list_id";
+		mysqli_query($link, $sql_update);
 
 		header("Location: lists.php?username=$username");
 	}
 
 	elseif(isset($_GET['list_id'])) {
-
 			$list_id = $_GET['list_id'];
-			$sql_select_list_name = "SELECT name FROM lists where lists.id = '" . $list_id . "'";
-			$list_name = mysqli_query($link, $sql_select_list_name)->fetch_object()->name;
+
+			$sql_select_list_name = "SELECT name FROM lists WHERE lists.id = $list_id";
+			$result = mysqli_query($link, $sql_select_list_name);
+			$result = mysqli_fetch_object($result);
+			$list_name = $result->name;
 		?>
 
 		<form method="GET">

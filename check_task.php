@@ -6,7 +6,9 @@
 		$task_id = $_GET['task_id'];
 		$sql = 	"SELECT checked, list_id FROM tasks WHERE id = $task_id";
 
-		$result = mysqli_query($link, $sql)->fetch_object();
+		$result = mysqli_query($link, $sql);
+		$result = mysqli_fetch_object($result);
+		
 		$is_checked = $result->checked;
 		$list_id = $result->list_id;
 
