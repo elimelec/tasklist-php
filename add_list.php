@@ -1,6 +1,6 @@
 <?php
 
-include_once "connect.php";
+include_once "sql.php";
 include_once "session.php";
 
 if(isset($_POST['save'])) {

@@ -1,6 +1,6 @@
 <?php
 
-	include "connect.php";
+	include "sql.php";
 
 
 	if(isset($_GET['list_id'])) {

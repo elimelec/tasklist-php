@@ -1,6 +1,6 @@
 <?php
 
-	include "connect.php";
+	include "sql.php";
 
 	if(isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] != "" && $_POST['password'] != "") {
 		$username = $_POST['username'];

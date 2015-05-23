@@ -1,7 +1,7 @@
 <?php
 
 include_once "session.php";
-include_once "connect.php";
+include_once "sql.php";
 
 include_once "page.php";
 

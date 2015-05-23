@@ -1,6 +1,6 @@
 <?php
 
-	include "connect.php";
+	include "sql.php";
 
 	function checkSignUpData() {
 		return

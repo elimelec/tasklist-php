@@ -1,6 +1,6 @@
 <?php
 
-include_once "connect.php";
+include_once "sql.php";
 
 session_start();
 $session_token = session_id();
