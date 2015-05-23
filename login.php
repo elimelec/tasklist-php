@@ -14,8 +14,8 @@
 
 		$sql_select = "SELECT id FROM users WHERE user = '$username'";
 		$result = mysqli_query($link, $sql_select);
-		$result = mysqli_fetch_object($result);
-		$user_id = $result->id;
+		$result = mysqli_fetch_assoc($result);
+		$user_id = $result['id'];
 
 		if ($number_of_rows === 1) {
 			$sql_insert = "INSERT INTO sessions(token, user_id) VALUES ('$hash', $user_id)";

@@ -19,8 +19,8 @@ if ($_SERVER['SCRIPT_NAME'] == "/index.php") {
 }
 else {
   if ($num_rows === 1) {
-    $object = mysqli_fetch_object($result);
-    $user_id = $object->user_id;
+    $object = mysqli_fetch_assoc($result);
+    $user_id = $object['user_id'];
   }
   else {
     header("Location: /");
