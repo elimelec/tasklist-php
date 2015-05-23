@@ -11,11 +11,7 @@
 		$result = mysqli_fetch_assoc($result);
 		$username = $result['user'];
 
-		$sql_delete_tasks = "DELETE FROM tasks WHERE list_id = $list_id";
-		mysqli_query($link, $sql_delete_tasks);
-
-		$sql_delete_list = "DELETE FROM lists WHERE id = $list_id";
-		mysqli_query($link, $sql_delete_list);
+		delete_list($list_id);
 
 		header("Location: lists.php?username=$username");
 	}

@@ -17,4 +17,13 @@
 		mysqli_query($link, $sql);
 	}
 
+	function delete_list($list_id) {
+		global $link;
+		$sql = "DELETE FROM tasks WHERE list_id = $list_id";
+		mysqli_query($link, $sql);
+
+		$sql = "DELETE FROM lists WHERE id = $list_id";
+		mysqli_query($link, $sql);
+	}
+
 ?>
