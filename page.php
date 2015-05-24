@@ -142,3 +142,68 @@ function page_index_register_form() {
 		</form>
 	<?php
 }
+
+/// login form BEGIN
+$form_data = array();
+$form_data['action'] = "login.php";
+
+$form_inputs = array();
+
+$input = array();
+$input['type'] = "text";
+$input['name'] = "username";
+$input['placeholder'] = "User";
+$input['new_line'] = true;
+
+$form_inputs[] = $input;
+
+$input = array();
+$input['type'] = "password";
+$input['name'] = "password";
+$input['placeholder'] = "Password";
+$input['new_line'] = true;
+
+$form_inputs[] = $input;
+
+$form_data['inputs'] = $form_inputs;
+
+$form_data['submit_value'] = "Login";
+$form_data['submit_right_align'] = true;
+
+/// login form END
+function page_form() {
+	global $form_data;
+	?>
+		<form action="<?=$form_data['action']?>" method="post">
+			<?php
+				foreach ($form_data['inputs'] as $input) {
+					page_form_input($input);
+				}
+				page_form_submit($form_data);
+			?>
+		</form>
+	<?php
+}
+
+function page_form_input($input) {
+	$type = $input['type'];
+	$name = $input['name'];
+	$placeholder = $input['placeholder'];
+	$new_line = $input['new_line'];
+	?>
+		<input type="<?=$type?>" name="<?=$name?>" placeholder="<?=$placeholder?>">
+	<?php
+		if ($new_line) {
+			?>
+				<br>
+			<?php
+		}
+}
+
+function page_form_submit($form_data) {
+	$value = $form_data['submit_value'];
+	$right = $form_data['submit_right_align'] ? "right" : "";
+	?>
+		<input class="shadow-border button--round button--small <?=$right?>" type="submit" value="<?=$value?>">
+	<?php
+}
