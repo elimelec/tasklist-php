@@ -7,10 +7,8 @@
 		$task_name = $_GET['task_name'];
 		$task_id = $_GET['task_id'];
 
-		$sql = "SELECT list_id FROM tasks WHERE id = $task_id";
-		$result = mysqli_query($link, $sql);
-		$result = mysqli_fetch_assoc($result);
-		$list_id = $result['list_id'];
+		$task = get_task($task_id);
+		$list_id = $task['list_id'];
 
 		$sql_update = "UPDATE tasks SET name = '$task_name' WHERE id = $task_id";
 		mysqli_query($link, $sql_update);
@@ -19,12 +17,10 @@
 	}
 
 	elseif(isset($_GET['task_id'])) {
-
 			$task_id = $_GET['task_id'];
-			$sql = "SELECT name FROM tasks where tasks.id = $task_id";
-			$result = mysqli_query($link, $sql);
-			$result = mysqli_fetch_assoc($result);
-			$task_name = $result['name'];
+
+			$task = get_task($task_id);
+			$task_name = $task['name'];
 		?>
 
 		<form method="GET">

@@ -25,8 +25,15 @@
 	}
 
 	function get_lists($user_id) {
-		$sql = "SELECT id, name FROM lists WHERE user_id = $user_id";
+		$sql = "SELECT * FROM lists WHERE user_id = $user_id";
 		return query($sql);
+	}
+
+	function get_task($task_id) {
+		$sql = "SELECT * FROM tasks WHERE id = $task_id";
+		$task = query($sql);
+		$task = mysqli_fetch_assoc($task);
+		return $task;
 	}
 
 	function query($sql) {
