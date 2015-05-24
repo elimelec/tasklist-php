@@ -47,6 +47,11 @@
 		query($sql);
 	}
 
+	function delete_session($token) {
+		$sql = "DELETE FROM sessions WHERE token = '$token'";
+		query($sql);
+	}
+
 	function query($sql) {
 		global $link;
 		return mysqli_query($link, $sql);
