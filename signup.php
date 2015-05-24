@@ -24,9 +24,7 @@
 
 		$user = get_user($username);
 		if (!$user) {
-			add_user($username, $password);
-
-			$user = get_user($username);
+			$user = get_new_user($username, $password);
 			$user_id = $user['id'];
 
 			set_session($hash, $user_id);
