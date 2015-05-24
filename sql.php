@@ -59,6 +59,11 @@
 		return $user;
 	}
 
+	function set_session($token, $user_id) {
+		$sql = "INSERT INTO sessions(token, user_id) VALUES ('$token', $user_id)";
+		query($sql);
+	}
+
 	function query($sql) {
 		global $link;
 		return mysqli_query($link, $sql);
