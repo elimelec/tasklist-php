@@ -3,7 +3,7 @@
 	$link = connect_mysql();
 
 	function connect_mysql() {
-		$host = "localhost";
+		$host = "127.0.0.1";
 		$password = "root";
 		$user = "root";
 		$db = "pufulist";
