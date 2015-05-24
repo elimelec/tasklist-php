@@ -1,14 +1,20 @@
 <?php
 
-	$host = "localhost";
-	$password = "root";
-	$user = "root";
-	$db = "pufulist";
+	$link = connect_mysql();
 
-	$link = mysqli_connect($host, $user, $password, $db);
+	function connect_mysql() {
+		$host = "localhost";
+		$password = "root";
+		$user = "root";
+		$db = "pufulist";
 
-	if (mysqli_connect_errno()) {
-		die(mysqli_connect_error());
+		$link = mysqli_connect($host, $user, $password, $db);
+
+		if (mysqli_connect_errno()) {
+			die(mysqli_connect_error());
+		}
+
+		return $link;
 	}
 
 	function add_list($list_name, $user_id) {
