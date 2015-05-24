@@ -42,6 +42,11 @@
 		return $task;
 	}
 
+	function update_task($task) {
+		$sql = "UPDATE tasks SET name = '{$task['name']}' WHERE id = {$task['id']}";
+		query($sql);
+	}
+
 	function query($sql) {
 		global $link;
 		return mysqli_query($link, $sql);

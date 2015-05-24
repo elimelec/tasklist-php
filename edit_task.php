@@ -10,8 +10,9 @@
 		$task = get_task($task_id);
 		$list_id = $task['list_id'];
 
-		$sql_update = "UPDATE tasks SET name = '$task_name' WHERE id = $task_id";
-		mysqli_query($link, $sql_update);
+		$task['name'] = $task_name;
+
+		update_task($task);
 
 		header("Location: tasks.php?list_id=$list_id");
 	}
