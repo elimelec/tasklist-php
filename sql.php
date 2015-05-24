@@ -62,6 +62,11 @@
 		return $user;
 	}
 
+	function add_user($username, $password) {
+		$sql = "INSERT INTO users(user, password) VALUES('$username', '$password')";
+		query($sql);
+	}
+
 	function set_session($token, $user_id) {
 		$sql = "INSERT INTO sessions(token, user_id) VALUES ('$token', $user_id)";
 		query($sql);

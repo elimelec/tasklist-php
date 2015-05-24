@@ -24,8 +24,7 @@
 
 		$user = get_user($username);
 		if (!$user) {
-			$sql_insert_new_user = "INSERT INTO users(user, password) VALUES('$username', '$password')";
-			mysqli_query($link, $sql_insert_new_user);
+			add_user($username, $password);
 
 			$user = get_user($username);
 			$user_id = $user['id'];
