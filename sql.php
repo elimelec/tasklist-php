@@ -64,6 +64,13 @@
 		query($sql);
 	}
 
+	function get_session($token) {
+		$sql = "SELECT * FROM sessions WHERE token = '$token'";
+		$session = query($sql);
+		$session = mysqli_fetch_assoc($session);
+		return $session;
+	}
+
 	function query($sql) {
 		global $link;
 		return mysqli_query($link, $sql);
