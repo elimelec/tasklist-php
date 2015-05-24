@@ -116,3 +116,29 @@ function page_menu_logout_button() {
 		</div>
 	<?php
 }
+
+function page_index_login_form() {
+	?>
+		<form action="login.php" method="POST">
+			<input type="text" name="username" placeholder="User">
+			<br>
+			<input type="password" name="password" placeholder="Password">
+			<br>
+			<input class="shadow-border button--round button--small right" type="submit" value="Login">
+		</form>
+	<?php
+}
+
+function page_index_register_form() {
+	?>
+		<form action="signup.php" method="POST">
+			<input id="username" type="text" name="username" placeholder="User">
+			<br>
+			<input id="password" type="password" name="password" placeholder="Password">
+			<br>
+			<input id="check_password" type="password" name="check_password" placeholder="Check Password">
+			<br>
+			<input class="shadow-border button--round button--small right" type="submit" value="Sign Up">
+		</form>
+	<?php
+}
