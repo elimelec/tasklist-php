@@ -2,7 +2,15 @@
 
 	include "sql.php";
 
-	if(isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] != "" && $_POST['password'] != "") {
+	function check_login_data() {
+		return
+			isset($_POST['username']) &&
+			isset($_POST['password']) &&
+			$_POST['username'] != "" &&
+			$_POST['password'] != "";
+	}
+
+	if(check_login_data()) {
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
