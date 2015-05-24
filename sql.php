@@ -52,6 +52,13 @@
 		query($sql);
 	}
 
+	function get_user($username, $password) {
+		$sql = "SELECT * FROM users WHERE user = '$username' AND password = '$password'";
+		$user = query($sql);
+		$user = mysqli_fetch_assoc($user);
+		return $user;
+	}
+
 	function query($sql) {
 		global $link;
 		return mysqli_query($link, $sql);
