@@ -15,7 +15,7 @@
 		$sql_update = "UPDATE lists SET name = '$list_name' WHERE id = $list_id";
 		mysqli_query($link, $sql_update);
 
-		header("Location: lists.php?username=$username");
+		header("Location: lists.php");
 	}
 
 	elseif(isset($_GET['list_id'])) {
