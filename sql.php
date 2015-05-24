@@ -52,8 +52,11 @@
 		query($sql);
 	}
 
-	function get_user($username, $password) {
-		$sql = "SELECT * FROM users WHERE user = '$username' AND password = '$password'";
+	function get_user($username, $password = null) {
+		$sql = "SELECT * FROM users WHERE user = '$username'";
+		if ($password) {
+				$sql = $sql . "AND password = '$password'";
+		}
 		$user = query($sql);
 		$user = mysqli_fetch_assoc($user);
 		return $user;

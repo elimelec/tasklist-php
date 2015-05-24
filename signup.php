@@ -22,18 +22,13 @@
 
 		$hash = md5($username . $password . time());
 
-		$sql = "SELECT * FROM users WHERE user = '$username'";
-		$result = mysqli_query($link, $sql);
-		$number_of_rows = mysqli_num_rows($result);
-
-		if ($number_of_rows === 0) {
+		$user = get_user($username);
+		if (!$user) {
 			$sql_insert_new_user = "INSERT INTO users(user, password) VALUES('$username', '$password')";
 			mysqli_query($link, $sql_insert_new_user);
 
-			$sql_select = "SELECT id FROM users WHERE user = '$username'";
-			$result = mysqli_query($link, $sql_select);
-			$result = mysqli_fetch_assoc($result);
-			$user_id = $result['id'];
+			$user = get_user($username);
+			$user_id = $user['id'];
 
 			set_session($hash, $user_id);
 			session_id($hash);
