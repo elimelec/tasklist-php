@@ -150,15 +150,15 @@ $form_data['action'] = "login.php";
 $form_inputs = array();
 
 function get_input($type, $username, $placeholder, $new_line) {
-	$input = array();
-	$input['type'] = "$type";
-	$input['name'] = "$username";
-	$input['placeholder'] = "$placeholder";
-	$input['new_line'] = $new_line;
-	return $input;
+	return array(
+		'type' => $type,
+		'name' => $username,
+		'placeholder' => $placeholder,
+		'new_line' => $new_line
+	);
 }
 
-$form_inputs[] = get_input("text", "username", "User", true);;
+$form_inputs[] = get_input("text", "username", "User", true);
 $form_inputs[] = get_input("password", "password", "Password", true);
 
 $form_data['inputs'] = $form_inputs;
