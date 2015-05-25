@@ -149,7 +149,7 @@ $form_data['action'] = "login.php";
 
 $form_inputs = array();
 
-function get_input($type, $username, $placeholder, $new_line) {
+function get_input($type, $username, $placeholder, $new_line = true) {
 	return array(
 		'type' => $type,
 		'name' => $username,
@@ -158,8 +158,8 @@ function get_input($type, $username, $placeholder, $new_line) {
 	);
 }
 
-$form_inputs[] = get_input("text", "username", "User", true);
-$form_inputs[] = get_input("password", "password", "Password", true);
+$form_inputs[] = get_input("text", "username", "User");
+$form_inputs[] = get_input("password", "password", "Password");
 
 $form_data['inputs'] = $form_inputs;
 
