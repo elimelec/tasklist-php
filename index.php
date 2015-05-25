@@ -10,7 +10,7 @@ page_header();
 	<div class="login">
 		<h4>Already have an account?</h4>
 		<?php
-			page_form();
+			page_index_login_form();
 		?>
 	</div>
 

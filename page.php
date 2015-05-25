@@ -118,36 +118,31 @@ function page_menu_logout_button() {
 }
 
 function page_index_login_form() {
-	?>
-		<form action="login.php" method="POST">
-			<input type="text" name="username" placeholder="User">
-			<br>
-			<input type="password" name="password" placeholder="Password">
-			<br>
-			<input class="shadow-border button--round button--small right" type="submit" value="Login">
-		</form>
-	<?php
+	$form_data = array(
+		'action' => "login.php" ,
+		'inputs' => array(
+				get_page_form_input("text", "username", "User"),
+				get_page_form_input("password", "password", "Password")
+			) ,
+		'submit_value' => "Login" ,
+		'submit_right_align' => true ,
+	);
+	page_form($form_data);
 }
 
 function page_index_register_form() {
-	?>
-		<form action="signup.php" method="POST">
-			<input id="username" type="text" name="username" placeholder="User">
-			<br>
-			<input id="password" type="password" name="password" placeholder="Password">
-			<br>
-			<input id="check_password" type="password" name="check_password" placeholder="Check Password">
-			<br>
-			<input class="shadow-border button--round button--small right" type="submit" value="Sign Up">
-		</form>
-	<?php
+	$form_data = array(
+		'action' => "signup.php" ,
+		'inputs' => array(
+				get_page_form_input("text", "username", "User") ,
+				get_page_form_input("password", "password", "Password") ,
+				get_page_form_input("check_password", "check_password", "Check Password") ,
+			) ,
+		'submit_value' => "Sign Up" ,
+		'submit_right_align' => true ,
+	);
+	page_form($form_data);
 }
-
-/// login form BEGIN
-$form_data = array();
-$form_data['action'] = "login.php";
-
-$form_inputs = array();
 
 function get_page_form_input($type, $username, $placeholder, $new_line = true) {
 	return array(
@@ -158,17 +153,7 @@ function get_page_form_input($type, $username, $placeholder, $new_line = true) {
 	);
 }
 
-$form_data['inputs'] = array(
-		get_page_form_input("text", "username", "User"),
-		get_page_form_input("password", "password", "Password")
-	);
-
-$form_data['submit_value'] = "Login";
-$form_data['submit_right_align'] = true;
-
-/// login form END
-function page_form() {
-	global $form_data;
+function page_form($form_data) {
 	?>
 		<form action="<?=$form_data['action']?>" method="post">
 			<?php
