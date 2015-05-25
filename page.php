@@ -124,8 +124,10 @@ function page_index_login_form() {
 				get_page_form_input("text", "username", "User"),
 				get_page_form_input("password", "password", "Password")
 			) ,
-		'submit_value' => "Login" ,
-		'submit_right_align' => true ,
+		'submit' => array(
+				'value' => "Login",
+				'right' => true ,
+			) ,
 	);
 	page_form($form_data);
 }
@@ -138,8 +140,10 @@ function page_index_register_form() {
 				get_page_form_input("password", "password", "Password") ,
 				get_page_form_input("check_password", "check_password", "Check Password") ,
 			) ,
-		'submit_value' => "Sign Up" ,
-		'submit_right_align' => true ,
+		'submit' => array(
+			'value' => "Sign Up" ,
+			'right' => true ,
+		) ,
 	);
 	page_form($form_data);
 }
@@ -160,7 +164,7 @@ function page_form($form_data) {
 				foreach ($form_data['inputs'] as $input) {
 					page_form_input($input);
 				}
-				page_form_submit($form_data);
+				page_form_submit($form_data['submit']);
 			?>
 		</form>
 	<?php
@@ -181,9 +185,9 @@ function page_form_input($input) {
 		}
 }
 
-function page_form_submit($form_data) {
-	$value = $form_data['submit_value'];
-	$right = $form_data['submit_right_align'] ? "right" : "";
+function page_form_submit($submit) {
+	$value = $submit['value'];
+	$right = $submit['right'] ? "right" : "";
 	?>
 		<input class="shadow-border button--round button--small <?=$right?>" type="submit" value="<?=$value?>">
 	<?php
