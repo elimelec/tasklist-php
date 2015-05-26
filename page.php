@@ -120,8 +120,8 @@ function page_index_login_form() {
 	$form_data = array(
 		'action' => "login.php" ,
 		'inputs' => array(
-				get_page_form_input("text", "username", "User"),
-				get_page_form_input("password", "password", "Password")
+				get_page_form_text_input("username", "User"),
+				get_page_form_password_input("password", "Password")
 			) ,
 		'submit' => array(
 				'value' => "Login",
@@ -135,9 +135,9 @@ function page_index_register_form() {
 	$form_data = array(
 		'action' => "signup.php" ,
 		'inputs' => array(
-				get_page_form_input("text", "username", "User") ,
-				get_page_form_input("password", "password", "Password") ,
-				get_page_form_input("check_password", "check_password", "Check Password") ,
+				get_page_form_text_input("username", "User") ,
+				get_page_form_password_input("password", "Password") ,
+				get_page_form_password_input("check_password", "Check Password") ,
 			) ,
 		'submit' => array(
 			'value' => "Sign Up" ,
@@ -151,7 +151,7 @@ function page_lists_new_form() {
 	$form_data = array(
 		'action' => "add_list.php" ,
 		'inputs' => array(
-				get_page_form_input("text", "list_name", "List name", false) ,
+			get_page_form_text_input("list_name", "List name", false) ,
 			) ,
 		'submit' => array(
 			'value' => "New" ,
