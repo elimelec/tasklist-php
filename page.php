@@ -164,7 +164,7 @@ function page_tasks_new_form($list_id) {
 		'action' => "add_task.php" ,
 		'inputs' => array(
 			get_page_form_hidden_input("list_id", $list_id),
-			get_page_form_text_input("list_name", "List name", false) ,
+			get_page_form_text_input("task_name", "Task name", false) ,
 			) ,
 		'submit' => array(
 			'value' => "New" ,
