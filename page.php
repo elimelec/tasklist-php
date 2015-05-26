@@ -179,7 +179,11 @@ function get_page_form_text_input($name, $placeholder = "", $new_line = true) {
 	return get_page_form_input("text", $name, $placeholder, $new_line);
 }
 
-function get_page_form_input($type, $name, $placeholder, $new_line = true) {
+function get_page_form_password_input($name, $placeholder = "", $new_line = true) {
+	return get_page_form_input("password", $name, $placeholder, $new_line);
+}
+
+function get_page_form_input($type, $name, $placeholder = "", $new_line = true) {
 	return array(
 		'type' => $type,
 		'name' => $name,
