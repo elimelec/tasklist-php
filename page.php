@@ -161,6 +161,10 @@ function page_lists_new_form() {
 	page_form($form_data);
 }
 
+function get_page_form_hidden_input($name, $value) {
+	return get_page_form_input("hidden", $name, "", $value);
+}
+
 function get_page_form_text_input($name, $placeholder = "", $new_line = true) {
 	return get_page_form_input("text", $name, $placeholder, $new_line);
 }
@@ -169,12 +173,13 @@ function get_page_form_password_input($name, $placeholder = "", $new_line = true
 	return get_page_form_input("password", $name, $placeholder, $new_line);
 }
 
-function get_page_form_input($type, $name, $placeholder = "", $new_line = true) {
+function get_page_form_input($type, $name, $placeholder = "", $value = "", $new_line = true) {
 	return array(
 		'type' => $type,
 		'name' => $name,
 		'placeholder' => $placeholder,
-		'new_line' => $new_line
+		'value' => $value,
+		'new_line' => $new_line,
 	);
 }
 
@@ -195,9 +200,10 @@ function page_form_input($input) {
 	$type = $input['type'];
 	$name = $input['name'];
 	$placeholder = $input['placeholder'];
+	$value = $input['value'];
 	$new_line = $input['new_line'];
 	?>
-		<input type="<?=$type?>" name="<?=$name?>" placeholder="<?=$placeholder?>">
+		<input type="<?=$type?>" name="<?=$name?>" placeholder="<?=$placeholder?>" value="<?=$value?>">
 	<?php
 		if ($new_line) {
 			?>
