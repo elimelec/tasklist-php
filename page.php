@@ -70,10 +70,9 @@ function page_lists_menu() {
 		<div class="center">
 			<div class="flex">
 				<div class="new-task">
-					<form action="add_list.php" method="POST">
-						<input type="text" name="list_name" placeholder="List name">
-						<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
-					</form>
+					<?php
+						page_lists_new_form();
+					?>
 				</div>
 				<?php
 					page_menu_logout_button();
@@ -143,6 +142,20 @@ function page_index_register_form() {
 		'submit' => array(
 			'value' => "Sign Up" ,
 			'right' => true ,
+		) ,
+	);
+	page_form($form_data);
+}
+
+function page_lists_new_form() {
+	$form_data = array(
+		'action' => "add_list.php" ,
+		'inputs' => array(
+				get_page_form_input("text", "list_name", "List name", false) ,
+			) ,
+		'submit' => array(
+			'value' => "New" ,
+			'right' => false ,
 		) ,
 	);
 	page_form($form_data);
