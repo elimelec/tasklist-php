@@ -92,11 +92,9 @@ function page_tasks_menu($list_id) {
 					</a>
 				</div>
 				<div class="new-task">
-					<form action="add_task.php" method="POST">
-						<input type="hidden" name="list_id" value="<?=$list_id?>">
-						<input type="text" name="task_name" placeholder="Task name">
-						<input class="shadow-border button--round button--small" type="submit" name="save" value="New">
-					</form>
+					<?php
+						page_tasks_new_form($list_id);
+					?>
 				</div>
 				<?php
 					page_menu_logout_button();
@@ -161,16 +159,31 @@ function page_lists_new_form() {
 	page_form($form_data);
 }
 
+function page_tasks_new_form($list_id) {
+	$form_data = array(
+		'action' => "add_task.php" ,
+		'inputs' => array(
+			get_page_form_hidden_input("list_id", $list_id),
+			get_page_form_text_input("list_name", "List name", false) ,
+			) ,
+		'submit' => array(
+			'value' => "New" ,
+			'right' => false ,
+		) ,
+	);
+	page_form($form_data);
+}
+
 function get_page_form_hidden_input($name, $value) {
-	return get_page_form_input("hidden", $name, "", $value);
+	return get_page_form_input("hidden", $name, "", $value, false);
 }
 
 function get_page_form_text_input($name, $placeholder = "", $new_line = true) {
-	return get_page_form_input("text", $name, $placeholder, $new_line);
+	return get_page_form_input("text", $name, $placeholder, "", $new_line);
 }
 
 function get_page_form_password_input($name, $placeholder = "", $new_line = true) {
-	return get_page_form_input("password", $name, $placeholder, $new_line);
+	return get_page_form_input("password", $name, $placeholder, "", $new_line);
 }
 
 function get_page_form_input($type, $name, $placeholder = "", $value = "", $new_line = true) {
