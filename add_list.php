@@ -3,7 +3,7 @@
 include_once "sql.php";
 include_once "session.php";
 
-if(isset($_POST['save'])) {
+if(isset($_POST['list_name'])) {
 
 	$list_name = $_POST['list_name'];
 
