@@ -175,10 +175,14 @@ function page_tasks_new_form() {
 	page_form($form_data);
 }
 
-function get_page_form_input($type, $username, $placeholder, $new_line = true) {
+function get_page_form_text_input($name, $placeholder = "", $new_line = true) {
+	return get_page_form_input("text", $name, $placeholder, $new_line);
+}
+
+function get_page_form_input($type, $name, $placeholder, $new_line = true) {
 	return array(
 		'type' => $type,
-		'name' => $username,
+		'name' => $name,
 		'placeholder' => $placeholder,
 		'new_line' => $new_line
 	);
