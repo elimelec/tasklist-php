@@ -8,11 +8,6 @@ if(isset($_GET['submit'])) {
 	$list_name = $_GET['list_name'];
 	$list_id = $_GET['list_id'];
 
-	$sql_select_list = "SELECT user FROM lists JOIN users ON users.id = user_id WHERE lists.id = $list_id";
-	$result = mysqli_query($link, $sql_select_list);
-	$result = mysqli_fetch_assoc($result);
-	$username = $result['user'];
-
 	$sql_update = "UPDATE lists SET name = '$list_name' WHERE id = $list_id";
 	mysqli_query($link, $sql_update);
 
