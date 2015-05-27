@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 27, 2015 at 09:52 PM
+-- Generation Time: May 27, 2015 at 10:03 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.4.37
 
@@ -32,6 +32,7 @@ DROP TABLE IF EXISTS `items`;
 CREATE TABLE IF NOT EXISTS `items` (
   `id` int(11) NOT NULL,
   `hash` varchar(32) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `type` varchar(32) NOT NULL,
   `parent` int(11) NOT NULL DEFAULT '0',
   `user_id` int(11) NOT NULL
@@ -41,9 +42,9 @@ CREATE TABLE IF NOT EXISTS `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `hash`, `type`, `parent`, `user_id`) VALUES
-(1, '18696c489cea9e22c90753ebb75aac9d', 'group', 0, 1),
-(2, '104c75265f861106b6ea5a9a58bf13b8', 'task', 0, 1);
+INSERT INTO `items` (`id`, `hash`, `name`, `type`, `parent`, `user_id`) VALUES
+(1, '18696c489cea9e22c90753ebb75aac9d', 'Food', 'group', 0, 1),
+(2, '104c75265f861106b6ea5a9a58bf13b8', 'Pizza', 'task', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -54,7 +55,6 @@ INSERT INTO `items` (`id`, `hash`, `type`, `parent`, `user_id`) VALUES
 DROP TABLE IF EXISTS `items_groups`;
 CREATE TABLE IF NOT EXISTS `items_groups` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
   `item_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS `items_groups` (
 -- Dumping data for table `items_groups`
 --
 
-INSERT INTO `items_groups` (`id`, `name`, `item_id`) VALUES
-(1, 'Food', 1);
+INSERT INTO `items_groups` (`id`, `item_id`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,6 @@ INSERT INTO `items_groups` (`id`, `name`, `item_id`) VALUES
 DROP TABLE IF EXISTS `items_tasks`;
 CREATE TABLE IF NOT EXISTS `items_tasks` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0',
   `item_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -83,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `items_tasks` (
 -- Dumping data for table `items_tasks`
 --
 
-INSERT INTO `items_tasks` (`id`, `name`, `checked`, `item_id`) VALUES
-(1, 'Pizza', 0, 2);
+INSERT INTO `items_tasks` (`id`, `checked`, `item_id`) VALUES
+(1, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -149,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `name`, `checked`, `list_id`) VALUES
-(1, 'Bananas', 0, 1),
+(1, 'Bananas', 1, 1),
 (2, 'Oranges', 0, 1),
 (3, 'Apples', 0, 1),
 (4, 'Pomegranate', 0, 1),
