@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 27, 2015 at 09:39 PM
+-- Generation Time: May 27, 2015 at 09:52 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.4.37
 
@@ -32,6 +32,7 @@ DROP TABLE IF EXISTS `items`;
 CREATE TABLE IF NOT EXISTS `items` (
   `id` int(11) NOT NULL,
   `hash` varchar(32) NOT NULL,
+  `type` varchar(32) NOT NULL,
   `parent` int(11) NOT NULL DEFAULT '0',
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -40,9 +41,9 @@ CREATE TABLE IF NOT EXISTS `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `hash`, `parent`, `user_id`) VALUES
-(1, '18696c489cea9e22c90753ebb75aac9d', 0, 1),
-(2, '104c75265f861106b6ea5a9a58bf13b8', 0, 1);
+INSERT INTO `items` (`id`, `hash`, `type`, `parent`, `user_id`) VALUES
+(1, '18696c489cea9e22c90753ebb75aac9d', 'group', 0, 1),
+(2, '104c75265f861106b6ea5a9a58bf13b8', 'task', 0, 1);
 
 -- --------------------------------------------------------
 
