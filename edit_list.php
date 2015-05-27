@@ -4,10 +4,10 @@ include_once "session.php";
 include_once "sql.php";
 include_once "page.php";
 
-if(isset($_GET['submit'])) {
+if(isset($_POST['list_id']) && isset($_POST['list_name'])) {
 
-	$list_name = $_GET['list_name'];
-	$list_id = $_GET['list_id'];
+	$list_name = $_POST['list_name'];
+	$list_id = $_POST['list_id'];
 
 	$list = get_list($list_id);
 	$list['name'] = $list_name;
@@ -22,10 +22,10 @@ elseif(isset($_GET['list_id'])) {
 	page_header("Edit List");
 	?>
 	<div class="flex">
-		<form method="GET">
+		<form action="edit_list.php" method="post">
 			<input type="hidden" name = "list_id" value="<?=$list_id?>">
 			<input id="list_name" type="text" name="list_name" value="<?=$list['name']?>" placeholder="List name">
-			<input class="shadow-border button--round button--small" type="submit" name="submit" value="Save">
+			<input class="shadow-border button--round button--small" type="submit" value="Save">
 		</form>
 	</div>
 	<?php
