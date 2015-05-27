@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 27, 2015 at 08:03 PM
+-- Generation Time: May 27, 2015 at 08:38 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.4.37
 
@@ -34,7 +34,15 @@ CREATE TABLE IF NOT EXISTS `items` (
   `hash` varchar(32) NOT NULL,
   `parent` int(11) NOT NULL DEFAULT '0',
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`id`, `hash`, `parent`, `user_id`) VALUES
+(1, '18696c489cea9e22c90753ebb75aac9d', 0, 1),
+(2, '104c75265f861106b6ea5a9a58bf13b8', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -71,7 +79,14 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `id` int(11) NOT NULL,
   `token` varchar(32) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`id`, `token`, `user_id`) VALUES
+(1, 'f209e978489990ceba2535e56b25661a', 1);
 
 -- --------------------------------------------------------
 
@@ -172,7 +187,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `lists`
 --
@@ -182,7 +197,7 @@ ALTER TABLE `lists`
 -- AUTO_INCREMENT for table `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tasks`
 --
