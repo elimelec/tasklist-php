@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2015 at 03:23 PM
+-- Generation Time: May 27, 2015 at 08:03 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.4.37
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `pufulist` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `pufulist`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `items`
+--
+
+DROP TABLE IF EXISTS `items`;
+CREATE TABLE IF NOT EXISTS `items` (
+  `id` int(11) NOT NULL,
+  `hash` varchar(32) NOT NULL,
+  `parent` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -121,6 +135,12 @@ INSERT INTO `users` (`id`, `user`, `password`) VALUES
 --
 
 --
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `hash` (`hash`);
+
+--
 -- Indexes for table `lists`
 --
 ALTER TABLE `lists`
@@ -148,6 +168,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `lists`
 --
