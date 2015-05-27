@@ -55,7 +55,14 @@
 	}
 
 	function get_items($user_id, $parent = 0) {
-		$sql = "SELECT * FROM items WHERE user_id = $user_id AND parent = $parent";
+		$sql = "SELECT *
+			FROM items
+		JOIN
+			(SELECT name, item_id FROM items_groups
+			UNION
+			SELECT name, item_id FROM items_tasks) as all_items
+			ON items.id = all_items.item_id
+		WHERE user_id = $user_id AND parent = $parent";
 		return assoc(query($sql));
 	}
 

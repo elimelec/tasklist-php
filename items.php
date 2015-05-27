@@ -13,7 +13,7 @@ function get_parent_id($parent = 0) {
 
 function page_item($item) {
 	?>
-	<div><?=$item['id'].": ".$item['hash']."/".$item['parent']."/".$item['user_id']?></div>
+	<div><?=$item['id'].": ".$item['hash']."/".$item['parent']."/".$item['user_id']."  ".$item['name']?></div>
 	<?php
 }
 
