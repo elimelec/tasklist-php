@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 27, 2015 at 09:06 PM
+-- Generation Time: May 27, 2015 at 09:39 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.4.37
 
@@ -83,8 +83,7 @@ CREATE TABLE IF NOT EXISTS `items_tasks` (
 --
 
 INSERT INTO `items_tasks` (`id`, `name`, `checked`, `item_id`) VALUES
-(1, 'Pizza', 0, 1),
-(2, 'Dragon Ball', 0, 1);
+(1, 'Pizza', 0, 2);
 
 -- --------------------------------------------------------
 
