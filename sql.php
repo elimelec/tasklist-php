@@ -55,22 +55,31 @@
 	}
 
 	function get_items($user_id, $parent = 0) {
-		$sql = "SELECT *
-			FROM items
-		JOIN
-			(SELECT name, item_id FROM items_groups
-			UNION
-			SELECT name, item_id FROM items_tasks) as all_items
-			ON items.id = all_items.item_id
-		WHERE user_id = $user_id AND parent = $parent";
-		return assoc(query($sql));
+		$sql = "SELECT * FROM items WHERE user_id = $user_id AND parent = $parent";
+		return assoc_items(query($sql));
 	}
 
-	function assoc($result) {
+	function assoc_items($result) {
 		$array = array();
-		while ($row = mysqli_fetch_assoc($result))
-			$array[] = $row;
+		while ($row = mysqli_fetch_assoc($result)) {
+			if($row['type'] == "task")
+				$array[] = assoc_items_task($row);
+			else
+				$array[] = $row;
+		}
 		return $array;
+	}
+
+	function assoc_once($result) {
+		return mysqli_fetch_assoc($result);
+	}
+
+	function assoc_items_task($task) {
+		$task_id = $task['id'];
+		$sql = "SELECT * FROM items_tasks WHERE item_id = $task_id";
+		$result = assoc_once(query($sql));
+		$task['checked'] = $result['checked'];
+		return $task;
 	}
 
 	function update_task($task) {

@@ -12,9 +12,14 @@ function get_parent_id($parent = 0) {
 }
 
 function page_item($item) {
-	?>
-	<div><?=$item['id'].": ".$item['hash']."/".$item['parent']."/".$item['user_id']."  ".$item['name']?></div>
-	<?php
+	switch($item['type']) {
+		case "group":
+			page_lists_list_item($item['id'], $item['name']);
+			break;
+		case "task":
+			page_tasks_task_item($item['id'], $item['name'], $item['checked']);
+			break;
+	}
 }
 
 $parent = get_parent_id();
