@@ -54,6 +54,18 @@
 		return $task;
 	}
 
+	function get_items($user_id, $parent = 0) {
+		$sql = "SELECT * FROM items WHERE user_id = $user_id AND parent = $parent";
+		return assoc(query($sql));
+	}
+
+	function assoc($result) {
+		$array = array();
+		while ($row = mysqli_fetch_assoc($result))
+			$array[] = $row;
+		return $array;
+	}
+
 	function update_task($task) {
 		$sql = "UPDATE tasks SET name = '{$task['name']}' WHERE id = {$task['id']}";
 		query($sql);
