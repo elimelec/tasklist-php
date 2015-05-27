@@ -35,6 +35,18 @@
 		return query($sql);
 	}
 
+	function get_list($list_id) {
+		$sql = "SELECT * FROM lists WHERE id = $list_id";
+		$list = query($sql);
+		$list = mysqli_fetch_assoc($list);
+		return $list;
+	}
+
+	function update_list($list) {
+		$sql = "UPDATE lists SET name = '{$list['name']}' WHERE id = {$list['id']}";
+		query($sql);
+	}
+
 	function get_task($task_id) {
 		$sql = "SELECT * FROM tasks WHERE id = $task_id";
 		$task = query($sql);

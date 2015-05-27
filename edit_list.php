@@ -8,8 +8,9 @@ if(isset($_GET['submit'])) {
 	$list_name = $_GET['list_name'];
 	$list_id = $_GET['list_id'];
 
-	$sql_update = "UPDATE lists SET name = '$list_name' WHERE id = $list_id";
-	mysqli_query($link, $sql_update);
+	$list = get_list($list_id);
+	$list['name'] = $list_name;
+	update_list($list);
 
 	header("Location: lists.php");
 }
