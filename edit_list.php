@@ -2,6 +2,7 @@
 
 include_once "session.php";
 include_once "sql.php";
+include_once "page.php";
 
 if(isset($_GET['submit'])) {
 
@@ -18,6 +19,7 @@ elseif(isset($_GET['list_id'])) {
 	$list_id = $_GET['list_id'];
 
 	$list = get_list($list_id);
+	page_header("Edit List");
 	?>
 
 	<form method="GET">
@@ -28,6 +30,7 @@ elseif(isset($_GET['list_id'])) {
 	</form>
 
 	<?php
+	page_footer();
 }
 
 ?>

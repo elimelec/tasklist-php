@@ -2,6 +2,7 @@
 
 include_once "session.php";
 include_once "sql.php";
+include_once "page.php";
 
 if(isset($_GET['submit'])) {
 
@@ -19,20 +20,21 @@ if(isset($_GET['submit'])) {
 }
 
 elseif(isset($_GET['task_id'])) {
-		$task_id = $_GET['task_id'];
+	$task_id = $_GET['task_id'];
 
-		$task = get_task($task_id);
-		$task_name = $task['name'];
+	$task = get_task($task_id);
+	page_header("Edit Task");
 	?>
 
 	<form method="GET">
 		<input type="hidden" name = "task_id" value="<?=$task_id?>">
 		<label for="task_name">Task name: </label>
-		<input id="task_name" type="text" name="task_name" value="<?=$task_name?>">
+		<input id="task_name" type="text" name="task_name" value="<?=$task['name']?>">
 		<input type="submit" name="submit" value="Ok">
 	</form>
 
 	<?php
+	page_footer();
 }
 
 ?>
