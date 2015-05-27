@@ -76,10 +76,14 @@
 
 	function assoc_items_task($task) {
 		$task_id = $task['id'];
-		$sql = "SELECT * FROM items_tasks WHERE item_id = $task_id";
-		$result = assoc_once(query($sql));
+		$result = get_item_task($task_id);
 		$task['checked'] = $result['checked'];
 		return $task;
+	}
+
+	function get_item_task($task_id) {
+		$sql = "SELECT * FROM items_tasks WHERE item_id = $task_id";
+		return assoc_once(query($sql));
 	}
 
 	function update_task($task) {
