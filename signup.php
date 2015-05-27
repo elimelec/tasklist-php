@@ -31,7 +31,7 @@
 			session_id($hash);
 			session_start();
 			session_commit();
-			header("Location: lists.php");
+			header("Location: items.php");
 		}
 		else {
 			echo "Check you login data";

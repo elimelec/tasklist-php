@@ -10,7 +10,7 @@ $user_id = 0;
 
 if ($_SERVER['SCRIPT_NAME'] == "/index.php") {
   if ($session) {
-    header("Location: lists.php");
+    header("Location: items.php");
   }
 }
 else {
