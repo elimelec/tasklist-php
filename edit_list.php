@@ -21,14 +21,13 @@ elseif(isset($_GET['list_id'])) {
 	$list = get_list($list_id);
 	page_header("Edit List");
 	?>
-
-	<form method="GET">
-		<input type="hidden" name = "list_id" value="<?=$list_id?>">
-		<label for="list_name">List name: </label>
-		<input id="list_name" type="text" name="list_name" value="<?=$list['name']?>">
-		<input type="submit" name="submit" value="Ok">
-	</form>
-
+	<div class="flex">
+		<form method="GET">
+			<input type="hidden" name = "list_id" value="<?=$list_id?>">
+			<input id="list_name" type="text" name="list_name" value="<?=$list['name']?>" placeholder="List name">
+			<input class="shadow-border button--round button--small" type="submit" name="submit" value="Save">
+		</form>
+	</div>
 	<?php
 	page_footer();
 }

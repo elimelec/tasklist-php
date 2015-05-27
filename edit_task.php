@@ -26,13 +26,13 @@ elseif(isset($_GET['task_id'])) {
 	page_header("Edit Task");
 	?>
 
-	<form method="GET">
-		<input type="hidden" name = "task_id" value="<?=$task_id?>">
-		<label for="task_name">Task name: </label>
-		<input id="task_name" type="text" name="task_name" value="<?=$task['name']?>">
-		<input type="submit" name="submit" value="Ok">
-	</form>
-
+	<div class="flex">
+		<form method="GET">
+			<input type="hidden" name = "task_id" value="<?=$task_id?>">
+			<input id="task_name" type="text" name="task_name" value="<?=$task['name']?>" placeholder="Task Name">
+			<input class="shadow-border button--round button--small" type="submit" name="submit" value="Save">
+		</form>
+	</div>
 	<?php
 	page_footer();
 }
