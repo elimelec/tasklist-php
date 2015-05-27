@@ -8,21 +8,16 @@ include_once "page.php";
 $results = get_lists($user_id);
 
 page_header("Lists");
+page_lists_menu();
 ?>
-
-<div class="content shadow-border">
+<div class="lists">
 	<?php
-		page_lists_menu();
+		while($row = mysqli_fetch_assoc($results)) {
+			$id = $row["id"];
+			$name = $row["name"];
+			page_lists_list_item($id, $name);
+		}
 	?>
-	<div class="lists">
-		<?php
-			while($row = mysqli_fetch_assoc($results)) {
-				$id = $row["id"];
-				$name = $row["name"];
-				page_lists_list_item($id, $name);
-			}
-		?>
-	</div>
 </div>
 
 <?php

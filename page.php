@@ -10,12 +10,14 @@ function page_header($title = "PufuList") {
 			<title><?=$title?></title>
 		</head>
 		<body>
-		<header class="shadow-border--big"><?=$title?></header>
+			<header class="shadow-border--big"><?=$title?></header>
+			<div class="content shadow-border">
 	<?php
 }
 
 function page_footer() {
 	?>
+			</div>
 		</body>
 		</html>
 	<?php

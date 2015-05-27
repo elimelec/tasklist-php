@@ -6,7 +6,7 @@ page_header();
 
 ?>
 
-<div class="content flex shadow-border">
+<div class="flex">
 	<div class="login">
 		<h4>Already have an account?</h4>
 		<?php
