@@ -86,6 +86,13 @@
 		return assoc_once(query($sql));
 	}
 
+	function set_item_task_check($task) {
+		$checked = $task['checked'];
+		$item_id = $task['item_id'];
+		$sql = "UPDATE items_tasks SET checked = $checked WHERE item_id = $item_id";
+		query($sql);
+	}
+
 	function update_task($task) {
 		$sql = "UPDATE tasks SET name = '{$task['name']}' WHERE id = {$task['id']}";
 		query($sql);
