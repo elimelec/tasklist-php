@@ -4,27 +4,29 @@ include_once "session.php";
 include_once "sql.php";
 include_once "page.php";
 
-if(isset($_POST['list_id']) && isset($_POST['list_name'])) {
+if(isset($_POST['group_id']) && isset($_POST['group_name'])) {
 
-	$list_name = $_POST['list_name'];
-	$list_id = $_POST['list_id'];
+	$list_name = $_POST['group_name'];
+	$group_id = $_POST['group_id'];
 
-	$list = get_list($list_id);
-	$list['name'] = $list_name;
-	update_list($list);
+	$group = get_item_group($group_id);
+	$group['name'] = $list_name;
+	set_item_group_name($group);
 
-	header("Location: lists.php");
+	$parent = $group['parent'];
+	header("Location: items.php?parent=$parent");
 }
-elseif(isset($_GET['list_id'])) {
-	$list_id = $_GET['list_id'];
+elseif(isset($_GET['group_id'])) {
+	$group_id = $_GET['group_id'];
 
-	$list = get_list($list_id);
+	$group = get_item_group($group_id);
+
 	page_header("Edit List");
 	?>
 	<div class="flex">
-		<form action="edit_list.php" method="post">
-			<input type="hidden" name = "list_id" value="<?=$list_id?>">
-			<input id="list_name" type="text" name="list_name" value="<?=$list['name']?>" placeholder="List name">
+		<form action="edit_group.php" method="post">
+			<input type="hidden" name = "group_id" value="<?=$group_id?>">
+			<input type="text" name="group_name" value="<?=$group['name']?>" placeholder="Group name">
 			<input class="shadow-border button--round button--small" type="submit" value="Save">
 		</form>
 	</div>
