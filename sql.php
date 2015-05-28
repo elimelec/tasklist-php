@@ -75,6 +75,20 @@
 		query($sql);
 	}
 
+	function delete_item($item_id) {
+		$sql = "DELETE FROM items WHERE id = $item_id";
+		query($sql);
+
+		$sql = "DELETE FROM items WHERE parent = $item_id";
+		query($sql);
+
+		$sql = "DELETE FROM items_groups WHERE item_id = $item_id";
+		query($sql);
+
+		$sql = "DELETE FROM items_tasks WHERE item_id = $item_id";
+		query($sql);
+	}
+
 	function delete_session($token) {
 		$sql = "DELETE FROM sessions WHERE token = '$token'";
 		query($sql);
