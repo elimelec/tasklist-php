@@ -40,7 +40,7 @@ function page_item_group($group) {
 			<span class="list-item--name">
 				<?=$group['name']?>
 			</span>
-		<a href="tasks.php?list_id=<?=$group['id']?>">
+		<a href="items.php?parent=<?=$group['id']?>">
 			<button >Show</button>
 		</a>
 		<a href="edit_list.php?list_id=<?=$group['id']?>">
