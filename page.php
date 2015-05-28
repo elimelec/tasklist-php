@@ -46,7 +46,7 @@ function page_item_group($group) {
 		<a href="edit_group.php?group_id=<?=$group['id']?>">
 			<button>Edit</button>
 		</a>
-		<a href="delete_list.php?list_id=<?=$group['id']?>">
+		<a href="delete_item.php?item_id=<?=$group['id']?>">
 			<button>Delete</button>
 		</a>
 	</div>
@@ -70,7 +70,7 @@ function page_item_task($task) {
 		<a href="edit_task.php?task_id=<?=$task['id']?>">
 			<button>Edit</button>
 		</a>
-		<a href="delete_task.php?task_id=<?=$task['id']?>">
+		<a href="delete_item.php?item_id=<?=$task['id']?>">
 			<button>Delete</button>
 		</a>
 	</div>

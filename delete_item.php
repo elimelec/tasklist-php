@@ -1,20 +1,15 @@
 <?php
 
-	include "sql.php";
+include "sql.php";
 
+$parent = 0;
 
-	if(isset($_GET['list_id'])) {
+if(isset($_GET['item_id'])) {
+	$item_id = $_GET['item_id'];
 
-		$list_id = $_GET['list_id'];
-		$sql_select_list = " SELECT user FROM lists JOIN users ON users.id = user_id WHERE lists.id = $list_id";
-		$result = mysqli_query($link, $sql_select_list);
-		$result = mysqli_fetch_assoc($result);
-		$username = $result['user'];
+	$item = get_item($item_id);
+	delete_item($item_id);
 
-		delete_list($list_id);
-
-		header("Location: lists.php?username=$username");
-	}
-
-
-?>
+	$parent = $item['parent'];
+}
+header("Location: items.php?parent=$parent");
