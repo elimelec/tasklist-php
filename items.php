@@ -15,6 +15,7 @@ $parent = get_parent_id();
 $items = get_items($user_id, $parent);
 
 page_header();
+page_menu($parent);
 
 foreach($items as $item) {
 	page_item($item);

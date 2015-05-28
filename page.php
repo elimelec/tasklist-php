@@ -77,42 +77,25 @@ function page_item_task($task) {
 <?php
 }
 
-function page_lists_menu() {
+function page_menu($parent) {
 	?>
-		<div class="center">
-			<div class="flex">
-				<div class="new-task">
-					<?php
-						page_lists_new_form();
-					?>
-				</div>
+	<div class="center">
+		<div class="flex">
+			<div class="all-lists">
+				<a href="items.php">
+					<button class="shadow-border button--round button--small">All Lists</button>
+				</a>
+			</div>
+			<div class="new-task">
 				<?php
-					page_menu_logout_button();
+//				page_tasks_new_form($parent);
 				?>
 			</div>
+			<?php
+			page_menu_logout_button();
+			?>
 		</div>
-	<?php
-}
-
-function page_tasks_menu($list_id) {
-	?>
-		<div class="center">
-			<div class="flex">
-				<div class="all-lists">
-					<a href="lists.php">
-						<button class="shadow-border button--round button--small">All Lists</button>
-					</a>
-				</div>
-				<div class="new-task">
-					<?php
-						page_tasks_new_form($list_id);
-					?>
-				</div>
-				<?php
-					page_menu_logout_button();
-				?>
-			</div>
-		</div>
+	</div>
 	<?php
 }
 
