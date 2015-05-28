@@ -56,6 +56,13 @@
 		query($sql);
 	}
 
+	function set_item_task_name($task) {
+		$name = $task['name'];
+		$item_id = $task['item_id'];
+		$sql = "UPDATE items SET name = $name WHERE id = $item_id";
+		query($sql);
+	}
+
 	function delete_session($token) {
 		$sql = "DELETE FROM sessions WHERE token = '$token'";
 		query($sql);
