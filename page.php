@@ -77,34 +77,53 @@ function page_item_task($task) {
 <?php
 }
 
-function page_menu($parent) {
+function page_menu($parent, $add_forms = false) {
 	?>
-	<div class="center">
-		<div class="flex">
-			<div class="all-lists">
-				<a href="items.php">
-					<button class="shadow-border button--round button--small">All Lists</button>
-				</a>
-			</div>
-			<div class="new-task">
-				<?php
-				page_items_new_form($parent);
-				?>
-			</div>
+	<div class="center flex">
+		<?php
+		page_menu_root_button();
+		?>
+		<div class="new-task">
 			<?php
-			page_menu_logout_button();
+			if ($add_forms) {
+				page_items_new_group_form($parent);
+				page_items_new_task_form($parent);
+			}
+			else {
+				page_menu_new_button($parent);
+			}
 			?>
 		</div>
+		<?php
+		page_menu_logout_button();
+		?>
 	</div>
 	<?php
 }
 
-function page_items_new_form($parent) {
+function page_items_new_group_form($parent) {
 	$form_data = array(
 		'action' => "add_item.php" ,
 		'inputs' => array(
+			get_page_form_hidden_input("type", "group"),
 			get_page_form_hidden_input("parent", $parent),
-			get_page_form_text_input("item_name", "Name", false),
+			get_page_form_text_input("item_name", "Group Name", false),
+		) ,
+		'submit' => array(
+			'value' => "New",
+			'right' => false ,
+		) ,
+	);
+	page_form($form_data);
+}
+
+function page_items_new_task_form($parent) {
+	$form_data = array(
+		'action' => "add_item.php" ,
+		'inputs' => array(
+			get_page_form_hidden_input("type", "task"),
+			get_page_form_hidden_input("parent", $parent),
+			get_page_form_text_input("item_name", "Task Name", false),
 		) ,
 		'submit' => array(
 			'value' => "New",
@@ -121,6 +140,26 @@ function page_menu_logout_button() {
 				<button class="shadow-border button--round button--small">Logout</button>
 			</a>
 		</div>
+	<?php
+}
+
+function page_menu_root_button() {
+	?>
+	<div class="all-lists">
+		<a href="items.php">
+			<button class="shadow-border button--round button--small">
+				All Lists
+			</button>
+		</a>
+	</div>
+<?php
+}
+
+function page_menu_new_button($parent) {
+	?>
+	<a href="add_item.php?parent=<?=$parent?>">
+		<button class="shadow-border button--round button--small">New</button>
+	</a>
 	<?php
 }
 
