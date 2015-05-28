@@ -1,5 +1,7 @@
 <?php
 
+	include_once "session.php";
+
 	$link = connect_mysql();
 
 	function connect_mysql() {
@@ -44,8 +46,42 @@
 		return $task;
 	}
 
+	function add_item($name, $type, $parent) {
+		global $user_id;
+		$hash = md5("web" . $name . $type . $parent . time());
+		$sql = "INSERT INTO items(hash, name, type, parent, user_id) VALUES ('$hash', '$name', '$type', $parent, $user_id)";
+		query($sql);
+
+		$new_item = assoc_once(get_item_hash($hash));
+		switch($new_item['type']) {
+			case "task":
+				add_item_task($new_item);
+				break;
+			case "group":
+				add_item_group($new_item);
+				break;
+		}
+	}
+
+	function add_item_task($item) {
+		$item_id = $item['id'];
+		$sql = "INSERT INTO items_tasks(item_id) VALUES ($item_id)";
+		query($sql);
+	}
+
+	function add_item_group($item) {
+		$item_id = $item['id'];
+		$sql = "INSERT INTO items_groups(item_id) VALUES ($item_id)";
+		query($sql);
+	}
+
 	function get_item($item_id) {
 		$sql = "SELECT * FROM items WHERE id = $item_id";
+		return assoc_once(query($sql));
+	}
+
+	function get_item_hash($hash) {
+		$sql = "SELECT * FROM items WHERE id = '$hash'";
 		return assoc_once(query($sql));
 	}
 
