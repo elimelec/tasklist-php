@@ -88,7 +88,7 @@ function page_menu($parent) {
 			</div>
 			<div class="new-task">
 				<?php
-//				page_tasks_new_form($parent);
+				page_items_new_form($parent);
 				?>
 			</div>
 			<?php
@@ -97,6 +97,20 @@ function page_menu($parent) {
 		</div>
 	</div>
 	<?php
+}
+
+function page_items_new_form($parent) {
+	$form_data = array(
+		'action' => "add_item.php" ,
+		'inputs' => array(
+			get_page_form_text_input("item_name", "Name", false),
+		) ,
+		'submit' => array(
+			'value' => "New",
+			'right' => false ,
+		) ,
+	);
+	page_form($form_data);
 }
 
 function page_menu_logout_button() {
