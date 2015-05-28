@@ -63,6 +63,18 @@
 		query($sql);
 	}
 
+	function get_item_group($group_id) {
+		$sql = "SELECT * FROM items JOIN items_groups ON item_id = items.id WHERE item_id = $group_id";
+		return assoc_once(query($sql));
+	}
+
+	function set_item_group_name($group) {
+		$name = $group['name'];
+		$item_id = $group['item_id'];
+		$sql = "UPDATE items SET name = '$name' WHERE id = $item_id";
+		query($sql);
+	}
+
 	function delete_session($token) {
 		$sql = "DELETE FROM sessions WHERE token = '$token'";
 		query($sql);
