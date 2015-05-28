@@ -9,20 +9,20 @@ if(isset($_POST['task_id']) && isset($_POST['task_name'])) {
 	$task_name = $_POST['task_name'];
 	$task_id = $_POST['task_id'];
 
-	$task = get_task($task_id);
-	$list_id = $task['list_id'];
+	$task = get_item_task($task_id);
+	$parent = $task['parent'];
 
 	$task['name'] = $task_name;
 
-	update_task($task);
+	set_item_task_name($task);
 
-	header("Location: tasks.php?list_id=$list_id");
+	header("Location: items.php?parent=$parent");
 }
 
 elseif(isset($_GET['task_id'])) {
 	$task_id = $_GET['task_id'];
 
-	$task = get_task($task_id);
+	$task = get_item_task($task_id);
 	page_header("Edit Task");
 	?>
 
