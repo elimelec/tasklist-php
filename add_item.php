@@ -3,12 +3,13 @@
 include_once "sql.php";
 include_once "session.php";
 
-if(isset($_POST['task_name']) && isset($_POST['list_id'])) {
-	$task_name = $_POST['task_name'];
-	$list_id = $_POST['list_id'];
+$parent = 0;
 
-	$sql_add = "INSERT INTO tasks(name, checked, list_id) VALUES('$task_name', 0, $list_id)";
-	$added_task = mysqli_query($link, $sql_add);
+if(isset($_POST['item_name']) && isset($_POST['parent'])) {
+	$item_name = $_POST['item_name'];
+	$parent = $_POST['parent'];
+
+	add_item($item_name, "task", $parent);
 }
 
-header("Location: tasks.php?list_id=" . intval($list_id));
+header("Location:items.php?parent=" . intval($parent));

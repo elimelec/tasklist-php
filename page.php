@@ -103,6 +103,7 @@ function page_items_new_form($parent) {
 	$form_data = array(
 		'action' => "add_item.php" ,
 		'inputs' => array(
+			get_page_form_hidden_input("parent", $parent),
 			get_page_form_text_input("item_name", "Name", false),
 		) ,
 		'submit' => array(
