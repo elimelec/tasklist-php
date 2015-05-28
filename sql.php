@@ -44,6 +44,11 @@
 		return $task;
 	}
 
+	function get_item($item_id) {
+		$sql = "SELECT * FROM items WHERE id = $item_id";
+		return assoc_once(query($sql));
+	}
+
 	function get_item_task($task_id) {
 		$sql = "SELECT * FROM items JOIN items_tasks ON item_id = items.id WHERE item_id = $task_id";
 		return assoc_once(query($sql));
