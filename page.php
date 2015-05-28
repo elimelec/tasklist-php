@@ -77,7 +77,6 @@ function page_item_task($task) {
 <?php
 }
 
-
 function page_lists_menu() {
 	?>
 		<div class="center">
@@ -153,35 +152,6 @@ function page_index_register_form() {
 		'submit' => array(
 			'value' => "Sign Up" ,
 			'right' => true ,
-		) ,
-	);
-	page_form($form_data);
-}
-
-function page_lists_new_form() {
-	$form_data = array(
-		'action' => "add_list.php" ,
-		'inputs' => array(
-			get_page_form_text_input("list_name", "List name", false) ,
-			) ,
-		'submit' => array(
-			'value' => "New" ,
-			'right' => false ,
-		) ,
-	);
-	page_form($form_data);
-}
-
-function page_tasks_new_form($list_id) {
-	$form_data = array(
-		'action' => "add_task.php" ,
-		'inputs' => array(
-			get_page_form_hidden_input("list_id", $list_id),
-			get_page_form_text_input("task_name", "Task name", false) ,
-			) ,
-		'submit' => array(
-			'value' => "New" ,
-			'right' => false ,
 		) ,
 	);
 	page_form($form_data);
