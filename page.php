@@ -86,8 +86,8 @@ function page_menu($parent, $add_forms = false) {
 		<div class="new-task">
 			<?php
 			if ($add_forms) {
-				page_items_new_group_form($parent);
-				page_items_new_task_form($parent);
+				page_items_new_form($parent, "group");
+				page_items_new_form($parent, "task");
 			}
 			else {
 				page_menu_new_button($parent);
@@ -101,29 +101,13 @@ function page_menu($parent, $add_forms = false) {
 	<?php
 }
 
-function page_items_new_group_form($parent) {
+function page_items_new_form($parent, $type) {
 	$form_data = array(
 		'action' => "add_item.php" ,
 		'inputs' => array(
-			get_page_form_hidden_input("type", "group"),
+			get_page_form_hidden_input("type", $type),
 			get_page_form_hidden_input("parent", $parent),
 			get_page_form_text_input("item_name", "Group Name", false),
-		) ,
-		'submit' => array(
-			'value' => "New",
-			'right' => false ,
-		) ,
-	);
-	page_form($form_data);
-}
-
-function page_items_new_task_form($parent) {
-	$form_data = array(
-		'action' => "add_item.php" ,
-		'inputs' => array(
-			get_page_form_hidden_input("type", "task"),
-			get_page_form_hidden_input("parent", $parent),
-			get_page_form_text_input("item_name", "Task Name", false),
 		) ,
 		'submit' => array(
 			'value' => "New",
