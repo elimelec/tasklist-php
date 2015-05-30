@@ -2,11 +2,16 @@
 
 include_once "sql.php";
 
-session_start();
-$session_token = session_id();
-$session = get_session($session_token);
+function get_session_user_id() {
+	return get_session(session_id())['user_id'];
+}
 
-$user_id = 0;
+function get_session_token() {
+	return session_id();
+}
+
+session_start();
+$session = get_session(session_id());
 
 if ($_SERVER['SCRIPT_NAME'] == "/index.php") {
   if ($session) {
@@ -14,10 +19,7 @@ if ($_SERVER['SCRIPT_NAME'] == "/index.php") {
   }
 }
 else {
-  if ($session) {
-    $user_id = $session['user_id'];
-  }
-  else {
+  if (!$session) {
     header("Location: /");
   }
 }

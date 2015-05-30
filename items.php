@@ -12,7 +12,7 @@ function get_parent_id($parent = 0) {
 }
 
 $parent = get_parent_id();
-$items = get_items($user_id, $parent);
+$items = get_items(get_session_user_id(), $parent);
 
 page_header();
 page_menu($parent);

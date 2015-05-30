@@ -9,7 +9,7 @@ if(isset($_POST['item_name']) && isset($_POST['parent']) && isset($_POST['type']
 	$parent = $_POST['parent'];
 	$type = $_POST['type'];
 
-	add_item($item_name, $type, $parent, $user_id);
+	add_item($item_name, $type, $parent, get_session_user_id());
 	header("Location:items.php?parent=" . intval($parent));
 }
 elseif(isset($_GET['parent'])) {
