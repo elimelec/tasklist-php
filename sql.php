@@ -137,9 +137,7 @@
 		if ($password) {
 				$sql = $sql . "AND password = '$password'";
 		}
-		$user = query($sql);
-		$user = mysqli_fetch_assoc($user);
-		return $user;
+		return assoc_once(query($sql));
 	}
 
 	function add_user($username, $password) {
@@ -159,14 +157,10 @@
 
 	function get_session($token) {
 		$sql = "SELECT * FROM sessions WHERE token = '$token'";
-		$session = query($sql);
-		$session = mysqli_fetch_assoc($session);
-		return $session;
+		return assoc_once(query($sql));
 	}
 
 	function query($sql) {
 		global $link;
 		return mysqli_query($link, $sql);
 	}
-
-?>
