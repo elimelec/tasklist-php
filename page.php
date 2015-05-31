@@ -142,7 +142,7 @@ function page_menu_root_button() {
 
 function page_menu_new_button($parent) {
 	?>
-	<a href="add_item.php?parent=<?=$parent?>">
+	<a href="add/<?=$parent?>">
 		<button class="shadow-border button--round button--small">New</button>
 	</a>
 	<?php
