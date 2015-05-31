@@ -72,6 +72,15 @@ $page_delete_item = function($item_id) {
 	header("Location: /items/$parent");
 };
 
+$page_check_task = function($task_id) {
+	$task = get_item_task($task_id);
+	$task['checked'] = $task['checked'] == 0 ? 1 : 0;
+	set_item_task_check($task);
+	$parent = $task['parent'];
+
+	header("Location: /items/$parent");
+};
+
 $request = $_SERVER['REQUEST_URI'];
 if (preg_match('/^\/$/', $request)) {
 	$page_login();
@@ -93,6 +102,9 @@ elseif (preg_match('/^\/edit_group\/([0-9]+)$/', $request, $matches)) {
 }
 elseif (preg_match('/^\/delete\/([0-9]+)$/', $request, $matches)) {
 	$page_delete_item($matches[1]);
+}
+elseif (preg_match('/^\/check\/([0-9]+)$/', $request, $matches)) {
+	$page_check_task($matches[1]);
 }
 
 page_footer();

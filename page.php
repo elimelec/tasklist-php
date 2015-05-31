@@ -65,7 +65,7 @@ function page_item_task($task) {
 			<span class="list-item--name">
 				<?=$task['name']?>
 			</span>
-		<a href="check_task.php?task_id=<?=$task['id']?>">
+		<a href="check/<?=$task['id']?>">
 			<button> <?=$check_uncheck_string?> </button>
 		</a>
 		<a href="edit_task/<?=$task['id']?>">
