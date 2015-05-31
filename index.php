@@ -4,7 +4,7 @@ include_once "session.php";
 include_once "page.php";
 page_header();
 
-$login_page = function() {
+$page_login = function() {
 ?>
 <div class="flex">
 	<div class="login">
@@ -23,7 +23,7 @@ $login_page = function() {
 <?php
 };
 
-$items_page = function($parent = 0) {
+$page_items = function($parent = 0) {
 	$items = get_items(get_session_user_id(), $parent);
 
 	page_menu($parent);
@@ -35,13 +35,13 @@ $items_page = function($parent = 0) {
 
 $request = $_SERVER['REQUEST_URI'];
 if (preg_match('/^\/$/', $request)) {
-	$login_page();
+	$page_login();
 }
 elseif (preg_match('/^\/items$/', $request)) {
-	$items_page();
+	$page_items();
 }
 elseif (preg_match('/^\/items\/([0-9]+)$/', $request, $matches)) {
-	$items_page($matches[1]);
+	$page_items($matches[1]);
 }
 
 page_footer();
