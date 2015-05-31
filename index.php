@@ -33,6 +33,10 @@ $page_items = function($parent = 0) {
 	}
 };
 
+$page_add_item = function($parent = 0) {
+	page_menu($parent, true);
+};
+
 $request = $_SERVER['REQUEST_URI'];
 if (preg_match('/^\/$/', $request)) {
 	$page_login();
@@ -42,6 +46,9 @@ elseif (preg_match('/^\/items$/', $request)) {
 }
 elseif (preg_match('/^\/items\/([0-9]+)$/', $request, $matches)) {
 	$page_items($matches[1]);
+}
+elseif (preg_match('/^\/add\/([0-9]+)$/', $request, $matches)) {
+	$page_add_item($matches[1]);
 }
 
 page_footer();
