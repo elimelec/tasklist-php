@@ -23,15 +23,7 @@ $login_page = function() {
 <?php
 };
 
-$items_page = function() {
-	function get_parent_id($parent = 0) {
-		if (isset($_GET['parent'])) {
-			$parent = intval($_GET['parent']);
-		}
-		return $parent;
-	}
-
-	$parent = get_parent_id();
+$items_page = function($parent = 0) {
 	$items = get_items(get_session_user_id(), $parent);
 
 	page_menu($parent);
@@ -41,15 +33,15 @@ $items_page = function() {
 	}
 };
 
-
-switch($_SERVER['REQUEST_URI']) {
-	case "/":
-		$login_page();
-		break;
-	case "/items":
-		$items_page();
-		break;
+$request = $_SERVER['REQUEST_URI'];
+if (preg_match('/^\/$/', $request)) {
+	$login_page();
 }
-
+elseif (preg_match('/^\/items$/', $request)) {
+	$items_page();
+}
+elseif (preg_match('/^\/items\/([0-9]+)$/', $request, $matches)) {
+	$items_page($matches[1]);
+}
 
 page_footer();
