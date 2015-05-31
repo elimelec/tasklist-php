@@ -130,7 +130,7 @@ function page_menu_logout_button() {
 function page_menu_root_button() {
 	?>
 	<div class="all-lists">
-		<a href="items.php">
+		<a href="items">
 			<button class="shadow-border button--round button--small">
 				All Lists
 			</button>

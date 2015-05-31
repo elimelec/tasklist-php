@@ -24,7 +24,7 @@ if(check_login_data()) {
 		session_id($hash);
 		session_start();
 		session_commit();
-		header("Location: items.php");
+		header("Location: items");
 	}
 	else {
 		echo "Check you login data";
