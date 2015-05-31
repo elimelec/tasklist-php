@@ -6,6 +6,7 @@ function page_header($title = "PufuList") {
 		<html>
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<base href="/">
 			<link rel="stylesheet" type="text/css" href="css/theme.css">
 			<title><?=$title?></title>
 		</head>
