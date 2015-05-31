@@ -1,1 +1,7 @@
 php_flag display_errors 1
+
+Options FollowSymLinks
+
+RewriteEngine On
+RewriteBase /
+RewriteRule . index.php
