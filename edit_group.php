@@ -14,7 +14,7 @@ if(isset($_POST['group_id']) && isset($_POST['group_name'])) {
 	set_item_group_name($group);
 
 	$parent = $group['parent'];
-	header("Location: items.php?parent=$parent");
+	header("Location: items/$parent");
 }
 elseif(isset($_GET['group_id'])) {
 	$group_id = $_GET['group_id'];

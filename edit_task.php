@@ -16,7 +16,7 @@ if(isset($_POST['task_id']) && isset($_POST['task_name'])) {
 
 	set_item_task_name($task);
 
-	header("Location: items.php?parent=$parent");
+	header("Location: items/$parent");
 }
 
 elseif(isset($_GET['task_id'])) {

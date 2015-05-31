@@ -12,4 +12,4 @@ if(isset($_GET['item_id'])) {
 
 	$parent = $item['parent'];
 }
-header("Location: items.php?parent=$parent");
+header("Location: items/$parent");

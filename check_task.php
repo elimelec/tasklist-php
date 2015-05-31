@@ -9,5 +9,5 @@ if (isset($_GET['task_id'])) {
 	$task['checked'] = $task['checked'] == 0 ? 1 : 0;
 	set_item_task_check($task);
 
-	header("Location: items.php?parent=" . intval($task['parent']));
+	header("Location: items/" . intval($task['parent']));
 }

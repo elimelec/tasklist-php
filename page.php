@@ -41,7 +41,7 @@ function page_item_group($group) {
 			<span class="list-item--name">
 				<?=$group['name']?>
 			</span>
-		<a href="items.php?parent=<?=$group['id']?>">
+		<a href="items/<?=$group['id']?>">
 			<button >Show</button>
 		</a>
 		<a href="edit_group.php?group_id=<?=$group['id']?>">
