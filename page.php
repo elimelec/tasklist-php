@@ -121,7 +121,7 @@ function page_items_new_form($parent, $type) {
 function page_menu_logout_button() {
 	?>
 		<div class="logout">
-			<a href="logout.php">
+			<a href="logout">
 				<button class="shadow-border button--round button--small">Logout</button>
 			</a>
 		</div>

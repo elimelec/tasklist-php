@@ -33,6 +33,14 @@ $page_items = function($parent = 0) {
 	}
 };
 
+$page_logout = function() {
+	delete_session(get_session_token());
+	session_destroy();
+	session_commit();
+
+	header("Location: /");
+};
+
 $page_add_item = function($parent = 0) {
 	page_menu($parent, true);
 };
@@ -87,6 +95,9 @@ if (preg_match('/^\/$/', $request)) {
 }
 elseif (preg_match('/^\/items$/', $request)) {
 	$page_items();
+}
+elseif (preg_match('/^\/logout$/', $request)) {
+	$page_logout();
 }
 elseif (preg_match('/^\/items\/([0-9]+)$/', $request, $matches)) {
 	$page_items($matches[1]);
