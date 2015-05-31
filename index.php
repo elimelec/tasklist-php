@@ -51,6 +51,19 @@ $page_edit_task = function($task_id) {
 	<?php
 };
 
+$page_edit_group = function($group_id) {
+	$group = get_item_group($group_id);
+	?>
+	<div class="flex">
+		<form action="edit_group.php" method="post">
+			<input type="hidden" name = "group_id" value="<?=$group_id?>">
+			<input type="text" name="group_name" value="<?=$group['name']?>" placeholder="Group name">
+			<input class="shadow-border button--round button--small" type="submit" value="Save">
+		</form>
+	</div>
+	<?php
+};
+
 $request = $_SERVER['REQUEST_URI'];
 if (preg_match('/^\/$/', $request)) {
 	$page_login();
@@ -66,6 +79,9 @@ elseif (preg_match('/^\/add\/([0-9]+)$/', $request, $matches)) {
 }
 elseif (preg_match('/^\/edit_task\/([0-9]+)$/', $request, $matches)) {
 	$page_edit_task($matches[1]);
+}
+elseif (preg_match('/^\/edit_group\/([0-9]+)$/', $request, $matches)) {
+	$page_edit_group($matches[1]);
 }
 
 page_footer();

@@ -44,7 +44,7 @@ function page_item_group($group) {
 		<a href="items/<?=$group['id']?>">
 			<button >Show</button>
 		</a>
-		<a href="edit_group.php?group_id=<?=$group['id']?>">
+		<a href="edit_group/<?=$group['id']?>">
 			<button>Edit</button>
 		</a>
 		<a href="delete_item.php?item_id=<?=$group['id']?>">
