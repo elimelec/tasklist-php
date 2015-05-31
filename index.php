@@ -37,6 +37,20 @@ $page_add_item = function($parent = 0) {
 	page_menu($parent, true);
 };
 
+$page_edit_task = function($task_id) {
+	$task = get_item_task($task_id);
+	?>
+
+	<div class="flex">
+		<form action="edit_task.php" method="post">
+			<input type="hidden" name = "task_id" value="<?=$task_id?>">
+			<input id="task_name" type="text" name="task_name" value="<?=$task['name']?>" placeholder="Task Name">
+			<input class="shadow-border button--round button--small" type="submit" value="Save">
+		</form>
+	</div>
+	<?php
+};
+
 $request = $_SERVER['REQUEST_URI'];
 if (preg_match('/^\/$/', $request)) {
 	$page_login();
@@ -49,6 +63,9 @@ elseif (preg_match('/^\/items\/([0-9]+)$/', $request, $matches)) {
 }
 elseif (preg_match('/^\/add\/([0-9]+)$/', $request, $matches)) {
 	$page_add_item($matches[1]);
+}
+elseif (preg_match('/^\/edit_task\/([0-9]+)$/', $request, $matches)) {
+	$page_edit_task($matches[1]);
 }
 
 page_footer();
