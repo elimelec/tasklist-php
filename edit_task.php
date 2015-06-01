@@ -5,17 +5,15 @@ include_once "sql.php";
 include_once "page.php";
 include_once "controller.php";
 
-if(isset($_POST['task_id']) && isset($_POST['task_name'])) {
+$task_name = request("task_name");
+$task_id = request("task_id");
 
-	$task_name = $_POST['task_name'];
-	$task_id = $_POST['task_id'];
-
+$parent = 0;
+if(not_null($task_name, $task_id)) {
 	$task = get_item_task($task_id);
-	$parent = $task['parent'];
-
 	$task['name'] = $task_name;
-
 	set_item_task_name($task);
 
-	redirect("items/$parent");
+	$parent = $task['parent'];
 }
+redirect("items/$parent");
