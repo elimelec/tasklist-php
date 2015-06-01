@@ -10,7 +10,7 @@ function not_empty() {
 	return true;
 }
 
-function get($name) {
+function request_get($name) {
 	if (isset($_POST[$name])) {
 		return $_POST[$name];
 	}
