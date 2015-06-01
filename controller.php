@@ -10,6 +10,16 @@ function not_null() {
 	return true;
 }
 
+function not_empty() {
+	$args = func_get_args();
+	foreach ($args as $arg) {
+		if ($arg == "") {
+			return false;
+		}
+	}
+	return true;
+}
+
 function request($name) {
 	if (isset($_GET[$name])) {
 		return $_GET[$name];

@@ -3,18 +3,16 @@
 include "sql.php";
 include_once "controller.php";
 
-function check_login_data() {
+function check_login_data($username, $password) {
 	return
-		isset($_POST['username']) &&
-		isset($_POST['password']) &&
-		$_POST['username'] != "" &&
-		$_POST['password'] != "";
+		not_null($username, $password) &&
+		not_empty($username, $password);
 }
 
-if(check_login_data()) {
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+$username = request("username");
+$password = request("password");
 
+if(check_login_data($username, $password)) {
 	$hash = md5($username . $password . time());
 
 	$user = get_user($username, $password);
@@ -28,9 +26,9 @@ if(check_login_data()) {
 		redirect("/items");
 	}
 	else {
-		echo "Check you login data";
+		redirect("/");
 	}
 }
 else {
-	echo "Check you login data";
+	redirect("/");
 }
