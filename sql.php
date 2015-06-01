@@ -17,9 +17,13 @@ function connect_mysql() {
 	return $link;
 }
 
-function escape($string) {
+function get_link() {
 	global $link;
-	return mysqli_real_escape_string($link, $string);
+	return $link;
+}
+
+function escape($string) {
+	return mysqli_real_escape_string(get_link(), $string);
 }
 
 function get_items($user_id, $parent = 0) {
@@ -167,6 +171,5 @@ function get_session($token) {
 }
 
 function query($sql) {
-	global $link;
-	return mysqli_query($link, $sql);
+	return mysqli_query(get_link(), $sql);
 }
