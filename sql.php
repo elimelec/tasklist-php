@@ -145,12 +145,14 @@ function delete_session($token) {
 function get_user($username, $password = null) {
 	$sql = "SELECT * FROM users WHERE user = '$username'";
 	if ($password) {
+			$password = md5($username.$password);
 			$sql = $sql . "AND password = '$password'";
 	}
 	return assoc_once(query($sql));
 }
 
 function add_user($username, $password) {
+	$password = md5($username.$password);
 	$sql = "INSERT INTO users(user, password) VALUES('$username', '$password')";
 	query($sql);
 }

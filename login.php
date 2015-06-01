@@ -13,7 +13,7 @@ $password = request_get("password");
 if(check_login_data($username, $password)) {
 	$hash = md5($username . $password . time());
 
-	$user = get_user($username, md5($username.$password));
+	$user = get_user($username, $password);
 	$user_id = $user['id'];
 
 	if ($user) {
