@@ -9,7 +9,7 @@ $task_name = request("task_name");
 $task_id = request("task_id");
 
 $parent = 0;
-if(not_null($task_name, $task_id)) {
+if(not_empty($task_name, $task_id)) {
 	$task = get_item_task($task_id);
 	$task['name'] = $task_name;
 	set_item_task_name($task);

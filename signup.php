@@ -5,7 +5,6 @@ include_once "controller.php";
 
 function checkSignUpData($username, $password, $check_password) {
 	return
-		not_null($username, $password, $check_password) &&
 		not_empty($username, $password, $check_password) &&
 		passwordsMatch($password, $check_password);
 }

@@ -9,7 +9,7 @@ $item_name = request("item_name");
 $parent = request("parent");
 $type = request("type");
 
-if(not_null($item_name, $parent, $type)) {
+if(not_empty($item_name, $parent, $type)) {
 	add_item($item_name, $type, $parent, get_session_user_id());
 }
 

@@ -4,9 +4,7 @@ include "sql.php";
 include_once "controller.php";
 
 function check_login_data($username, $password) {
-	return
-		not_null($username, $password) &&
-		not_empty($username, $password);
+	return not_empty($username, $password);
 }
 
 $username = request("username");

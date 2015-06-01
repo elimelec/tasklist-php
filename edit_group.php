@@ -9,7 +9,7 @@ $list_name = request("group_name");
 $group_id = request("group_id");
 
 $parent = 0;
-if(not_null($list_name, $group_id)) {
+if(not_empty($list_name, $group_id)) {
 	$group = get_item_group($group_id);
 	$group['name'] = $list_name;
 	set_item_group_name($group);
