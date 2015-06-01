@@ -1,5 +1,24 @@
 <?php
 
+function not_null() {
+	$args = func_get_args();
+	foreach ($args as $arg) {
+		if (is_null($arg)) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function request($name) {
+	if (isset($_GET[$name])) {
+		return $_GET[$name];
+	}
+	elseif (isset($_POST[$name])) {
+		return $_POST[$name];
+	}
+}
+
 function redirect($url) {
 	header("Location: $url");
 	exit;

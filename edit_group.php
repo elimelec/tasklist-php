@@ -5,15 +5,15 @@ include_once "sql.php";
 include_once "page.php";
 include_once "controller.php";
 
-if(isset($_POST['group_id']) && isset($_POST['group_name'])) {
+$list_name = request("group_name");
+$group_id = request("group_id");
 
-	$list_name = $_POST['group_name'];
-	$group_id = $_POST['group_id'];
-
+$parent = 0;
+if(not_null($list_name, $group_id)) {
 	$group = get_item_group($group_id);
 	$group['name'] = $list_name;
 	set_item_group_name($group);
 
 	$parent = $group['parent'];
-	redirect("/items/$parent");
 }
+redirect("/items/$parent");
