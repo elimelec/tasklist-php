@@ -11,10 +11,7 @@ function not_empty() {
 }
 
 function request($name) {
-	if (isset($_GET[$name])) {
-		return $_GET[$name];
-	}
-	elseif (isset($_POST[$name])) {
+	if (isset($_POST[$name])) {
 		return $_POST[$name];
 	}
 	else {
