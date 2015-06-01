@@ -142,17 +142,21 @@ function delete_session($token) {
 	query($sql);
 }
 
+function hash_password($username, $password) {
+	return md5($username.$password);
+}
+
 function get_user($username, $password = null) {
 	$sql = "SELECT * FROM users WHERE user = '$username'";
 	if ($password) {
-			$password = md5($username.$password);
+			$password = hash_password($username, $password);
 			$sql = $sql . "AND password = '$password'";
 	}
 	return assoc_once(query($sql));
 }
 
 function add_user($username, $password) {
-	$password = md5($username.$password);
+	$password = hash_password($username, $password);
 	$sql = "INSERT INTO users(user, password) VALUES('$username', '$password')";
 	query($sql);
 }
