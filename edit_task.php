@@ -5,8 +5,8 @@ include_once "sql.php";
 include_once "page.php";
 include_once "controller.php";
 
-$task_name = request("task_name");
-$task_id = request("task_id");
+$task_name = get("task_name");
+$task_id = get("task_id");
 
 $parent = 0;
 if(not_empty($task_name, $task_id)) {

@@ -7,8 +7,8 @@ function check_login_data($username, $password) {
 	return not_empty($username, $password);
 }
 
-$username = request("username");
-$password = request("password");
+$username = get("username");
+$password = get("password");
 
 if(check_login_data($username, $password)) {
 	$hash = md5($username . $password . time());
