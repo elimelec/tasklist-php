@@ -1,5 +1,7 @@
 <?php
 
+include_once "sql.php";
+
 function not_empty() {
 	$args = func_get_args();
 	foreach ($args as $arg) {
@@ -12,7 +14,7 @@ function not_empty() {
 
 function request_get($name) {
 	if (isset($_POST[$name])) {
-		return $_POST[$name];
+		return escape(htmlentities($_POST[$name]));
 	}
 	else {
 		return null;

@@ -17,6 +17,11 @@ function connect_mysql() {
 	return $link;
 }
 
+function escape($string) {
+	global $link;
+	return mysqli_real_escape_string($link, $string);
+}
+
 function get_items($user_id, $parent = 0) {
 	$sql = "SELECT * FROM items WHERE user_id = $user_id AND parent = $parent";
 	return assoc_items(query($sql));
