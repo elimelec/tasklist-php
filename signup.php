@@ -22,7 +22,7 @@ if(checkSignUpData($username, $password, $check_password)) {
 
 	$user = get_user($username);
 	if (!$user) {
-		$user = get_new_user($username, $password);
+		$user = get_new_user($username, md5($username.$password));
 		$user_id = $user['id'];
 
 		set_session($hash, $user_id);
