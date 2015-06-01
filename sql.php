@@ -113,6 +113,7 @@ function set_item_group_name($group) {
 	query($sql);
 }
 
+//FIXME: This thing is not fully recursive
 function delete_item($item_id) {
 	$sql = "DELETE FROM items WHERE id = $item_id";
 	query($sql);
