@@ -3,24 +3,22 @@
 include "sql.php";
 include_once "controller.php";
 
-function checkSignUpData() {
+function checkSignUpData($username, $password, $check_password) {
 	return
-		isset($_POST['username']) &&
-		isset($_POST['password']) &&
-		isset($_POST['check_password']) &&
-		$_POST['username'] != "" &&
-		$_POST['password'] != "" &&
-		$_POST['check_password'] != "";
+		not_null($username, $password, $check_password) &&
+		not_empty($username, $password, $check_password) &&
+		passwordsMatch($password, $check_password);
 }
 
-function passwordsMatch() {
-	return $_POST['password'] === $_POST['check_password'];
+function passwordsMatch($password, $check_password) {
+	return $password === $check_password;
 }
 
-if(checkSignUpData() && passwordsMatch()) {
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+$username = request("username");
+$password = request("password");
+$check_password = request("check_password");
 
+if(checkSignUpData($username, $password, $check_password)) {
 	$hash = md5($username . $password . time());
 
 	$user = get_user($username);
@@ -35,9 +33,9 @@ if(checkSignUpData() && passwordsMatch()) {
 		redirect("/items");
 	}
 	else {
-		echo "Check you login data";
+		redirect("/");
 	}
 }
 else {
-	echo "Check you login data";
+	redirect("/");
 }
