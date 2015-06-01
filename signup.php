@@ -1,6 +1,7 @@
 <?php
 
 include "sql.php";
+include_once "controller.php";
 
 function checkSignUpData() {
 	return
@@ -31,7 +32,7 @@ if(checkSignUpData() && passwordsMatch()) {
 		session_id($hash);
 		session_start();
 		session_commit();
-		header("Location: items");
+		redirect("/items");
 	}
 	else {
 		echo "Check you login data";

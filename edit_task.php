@@ -3,6 +3,7 @@
 include_once "session.php";
 include_once "sql.php";
 include_once "page.php";
+include_once "controller.php";
 
 if(isset($_POST['task_id']) && isset($_POST['task_name'])) {
 
@@ -16,5 +17,5 @@ if(isset($_POST['task_id']) && isset($_POST['task_name'])) {
 
 	set_item_task_name($task);
 
-	header("Location: items/$parent");
+	redirect("items/$parent");
 }

@@ -3,6 +3,7 @@
 include_once "session.php";
 include_once "sql.php";
 include_once "page.php";
+include_once "controller.php";
 
 if(isset($_POST['group_id']) && isset($_POST['group_name'])) {
 
@@ -14,5 +15,5 @@ if(isset($_POST['group_id']) && isset($_POST['group_name'])) {
 	set_item_group_name($group);
 
 	$parent = $group['parent'];
-	header("Location: items/$parent");
+	redirect("/items/$parent");
 }

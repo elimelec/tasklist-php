@@ -3,6 +3,7 @@
 include_once "sql.php";
 include_once "session.php";
 include_once "page.php";
+include_once "controller.php";
 
 if(isset($_POST['item_name']) && isset($_POST['parent']) && isset($_POST['type'])) {
 	$item_name = $_POST['item_name'];
@@ -10,5 +11,5 @@ if(isset($_POST['item_name']) && isset($_POST['parent']) && isset($_POST['type']
 	$type = $_POST['type'];
 
 	add_item($item_name, $type, $parent, get_session_user_id());
-	header("Location: items/" . intval($parent));
+	redirect("/items/$parent");
 }

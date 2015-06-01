@@ -1,6 +1,7 @@
 <?php
 
 include "sql.php";
+include_once "controller.php";
 
 function check_login_data() {
 	return
@@ -24,7 +25,7 @@ if(check_login_data()) {
 		session_id($hash);
 		session_start();
 		session_commit();
-		header("Location: items");
+		redirect("/items");
 	}
 	else {
 		echo "Check you login data";

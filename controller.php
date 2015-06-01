@@ -1,5 +1,10 @@
 <?php
 
+function redirect($url) {
+	header("Location: $url");
+	exit;
+}
+
 function controller_print_page($request) {
 	$login = function() {
 		?>
@@ -35,7 +40,7 @@ function controller_print_page($request) {
 		session_destroy();
 		session_commit();
 
-		header("Location: /");
+		redirect("/");
 	};
 
 	$add = function($parent = 0) {
@@ -74,7 +79,7 @@ function controller_print_page($request) {
 		delete_item($item_id);
 
 		$parent = $item['parent'];
-		header("Location: /items/$parent");
+		redirect("/items/$parent");
 	};
 
 	$check_task = function($task_id) {
@@ -83,7 +88,7 @@ function controller_print_page($request) {
 		set_item_task_check($task);
 		$parent = $task['parent'];
 
-		header("Location: /items/$parent");
+		redirect("/items/$parent");
 	};
 
 	if (preg_match('/^\/$/', $request)) {
