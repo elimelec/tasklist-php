@@ -19,6 +19,8 @@ function page_header($title = "PufuList") {
 function page_footer() {
 	?>
 			</div>
+		<?php //FIXME: remove this link!!! ?>
+		<footer class="center"><a href="//csac.ro" target="_blank">csac.ro</a> </footer>
 		</body>
 		</html>
 	<?php
