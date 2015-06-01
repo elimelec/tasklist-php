@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 28, 2015 at 10:48 PM
+-- Generation Time: Jun 02, 2015 at 12:02 AM
 -- Server version: 5.5.42
 -- PHP Version: 5.4.37
 
@@ -29,21 +29,21 @@ USE `pufulist`;
 --
 
 DROP TABLE IF EXISTS `items`;
-CREATE TABLE IF NOT EXISTS `items` (
+CREATE TABLE `items` (
   `id` int(11) NOT NULL,
   `hash` varchar(32) NOT NULL,
   `name` varchar(255) NOT NULL,
   `type` varchar(32) NOT NULL,
   `parent` int(11) NOT NULL DEFAULT '0',
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `items`
 --
 
 INSERT INTO `items` (`id`, `hash`, `name`, `type`, `parent`, `user_id`) VALUES
-(1, '18696c489cea9e22c90753ebb75aac9d', 'Food', 'group', 0, 1),
+(1, '18696c489cea9e22c90753ebb75aac9d', 'Foods', 'group', 0, 1),
 (2, '104c75265f861106b6ea5a9a58bf13b8', 'Laptop', 'task', 0, 1),
 (47, '7215ebe422a0acdb90bf9d4465b0aef6', 'Anime', 'group', 0, 1),
 (48, '007d54405838b7612574d359ebf81497', 'Pizza', 'task', 1, 1),
@@ -53,7 +53,13 @@ INSERT INTO `items` (`id`, `hash`, `name`, `type`, `parent`, `user_id`) VALUES
 (52, '223291b00f3d70d1f1c58699d89084ee', 'Death Note', 'task', 47, 1),
 (53, '1b6ad02f6567320c92f2b0e05b6a1729', 'Short Anime', 'group', 47, 1),
 (54, '87b9880dd5e099b24913f66f033093c5', 'Devil May Cry', 'task', 53, 1),
-(55, 'f6ff3b14d913fcc2f077e9ada8ff2300', 'No Game No Life', 'task', 53, 1);
+(55, 'f6ff3b14d913fcc2f077e9ada8ff2300', 'No Game No Life', 'task', 53, 1),
+(63, '805bd8012fd14081348d20865c673a8b', 'asdasdasd', 'task', 0, 1),
+(64, '6516a6a31a53c80039e69a4d9e39a1b0', 'asdasd', 'task', 0, 1),
+(66, '6df07b7f4bcf98fae51306bdb9b3e1e4', 'asdasdasd', 'task', 0, 1),
+(75, '02295f2edf03398f93dc087eadb8a2cc', 'testomg', 'task', 0, 1),
+(76, '8d2bc4a7ea7a14d295a35a14692307a0', 'qw', 'group', 0, 4),
+(79, '49dbae6c94ffce2e9725b78079238984', 'qweqe', 'task', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -62,10 +68,10 @@ INSERT INTO `items` (`id`, `hash`, `name`, `type`, `parent`, `user_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `items_groups`;
-CREATE TABLE IF NOT EXISTS `items_groups` (
+CREATE TABLE `items_groups` (
   `id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `items_groups`
@@ -74,7 +80,11 @@ CREATE TABLE IF NOT EXISTS `items_groups` (
 INSERT INTO `items_groups` (`id`, `item_id`) VALUES
 (1, 1),
 (2, 47),
-(3, 53);
+(3, 53),
+(9, 69),
+(10, 70),
+(12, 73),
+(13, 76);
 
 -- --------------------------------------------------------
 
@@ -83,11 +93,11 @@ INSERT INTO `items_groups` (`id`, `item_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `items_tasks`;
-CREATE TABLE IF NOT EXISTS `items_tasks` (
+CREATE TABLE `items_tasks` (
   `id` int(11) NOT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0',
   `item_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `items_tasks`
@@ -100,8 +110,17 @@ INSERT INTO `items_tasks` (`id`, `checked`, `item_id`) VALUES
 (12, 0, 50),
 (13, 0, 51),
 (14, 1, 52),
-(15, 1, 54),
-(16, 0, 55);
+(15, 0, 54),
+(16, 1, 55),
+(22, 0, 63),
+(24, 0, 63),
+(29, 0, 63),
+(30, 1, 64),
+(32, 0, 66),
+(33, 0, 72),
+(34, 0, 74),
+(35, 0, 75),
+(36, 0, 79);
 
 -- --------------------------------------------------------
 
@@ -110,20 +129,11 @@ INSERT INTO `items_tasks` (`id`, `checked`, `item_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `sessions`;
-CREATE TABLE IF NOT EXISTS `sessions` (
+CREATE TABLE `sessions` (
   `id` int(11) NOT NULL,
   `token` varchar(32) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `sessions`
---
-
-INSERT INTO `sessions` (`id`, `token`, `user_id`) VALUES
-(2, 'f3445704ef904bc2eba27c5050cfc174', 1),
-(3, 'e2edd6993f3d99cf001e040a86a85a1d', 1),
-(4, '0d9073eedb1c950fce3c0d0adc598046', 1);
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -132,19 +142,18 @@ INSERT INTO `sessions` (`id`, `token`, `user_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `user` varchar(31) NOT NULL,
-  `password` varchar(63) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `password` varchar(32) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `user`, `password`) VALUES
-(1, 'eli', 'eli'),
-(2, 'ela', 'ela');
+(1, 'eli', 'e3fced4c8e7e561d58a46a29ac492749');
 
 --
 -- Indexes for dumped tables
@@ -188,27 +197,27 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `items_groups`
 --
 ALTER TABLE `items_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `items_tasks`
 --
 ALTER TABLE `items_tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
