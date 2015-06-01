@@ -120,7 +120,7 @@ function page_items_new_form($parent, $type) {
 
 function page_menu_logout_button() {
 	?>
-		<div class="logout">
+		<div class="all-center">
 			<a href="logout">
 				<button class="shadow-border button--round button--small">Logout</button>
 			</a>
@@ -130,7 +130,7 @@ function page_menu_logout_button() {
 
 function page_menu_root_button() {
 	?>
-	<div class="all-lists">
+	<div class="all-center">
 		<a href="items">
 			<button class="shadow-border button--round button--small">
 				All Lists

@@ -107,7 +107,7 @@ input[type=submit], button {
 	margin: auto 8px auto auto;
 }
 
-.all-lists {
+.all-center {
 	flex-grow: 0;
 	margin: auto;
 }
