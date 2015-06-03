@@ -168,6 +168,9 @@ function delete_item($item_id) {
 
 	$sql = "DELETE FROM items_tasks WHERE item_id = $item_id";
 	query($sql);
+
+	$sql = "DELETE FROM items_serials WHERE item_id = $item_id";
+	query($sql);
 }
 
 function delete_session($token) {
