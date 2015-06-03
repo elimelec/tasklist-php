@@ -152,7 +152,8 @@ function update_serial($serial) {
 }
 
 function update_item_name($item) {
-	$item_id = $item['id'];
+	// FIXME: Make this work with 'id'
+	$item_id = $item['item_id'];
 	$name = $item['name'];
 	$sql = "UPDATE items SET name = '$name' WHERE id = $item_id";
 	query($sql);
