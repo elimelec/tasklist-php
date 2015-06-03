@@ -87,7 +87,7 @@ function controller_print_page($request) {
 		?>
 		<div class="flex">
 			<form action="edit_serial.php" method="post">
-				<input type="hidden" name = "serial_id" value="<?=$serial_id?>">
+				<input type="hidden" name="serial_id" value="<?=$serial_id?>">
 				<input type="text" name="serial_name" value="<?=$serial['name']?>" placeholder="Serial Name">
 				<input type="text" name="episodes" value="<?=$serial['last']?>" placeholder="Episodes">
 				<input class="shadow-border button--round button--small" type="submit" value="Save">
