@@ -13,9 +13,9 @@ function passwordsMatch($password, $check_password) {
 	return $password === $check_password;
 }
 
-$username = request_get("username");
-$password = request_get("password");
-$check_password = request_get("check_password");
+$username = post("username");
+$password = post("password");
+$check_password = post("check_password");
 
 if(checkSignUpData($username, $password, $check_password)) {
 	$hash = md5($username . $password . time());

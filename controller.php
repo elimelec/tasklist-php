@@ -12,7 +12,7 @@ function not_empty() {
 	return true;
 }
 
-function request_get($name) {
+function post($name) {
 	if (isset($_POST[$name])) {
 		return escape(htmlentities($_POST[$name]));
 	}

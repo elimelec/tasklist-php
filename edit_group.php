@@ -5,8 +5,8 @@ include_once "sql.php";
 include_once "page.php";
 include_once "controller.php";
 
-$list_name = request_get("group_name");
-$group_id = request_get("group_id");
+$list_name = post("group_name");
+$group_id = post("group_id");
 
 $parent = 0;
 if(not_empty($list_name, $group_id)) {
