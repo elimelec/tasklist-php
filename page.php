@@ -60,7 +60,7 @@ function page_item_group($group) {
 }
 
 function page_item_task($task) {
-	$checked_string = $task['checked'] == 0 ? "[ ]" : "[x]";
+	$checked_string = $task['checked'] == 0 ? "[&nbsp;&nbsp;]" : "[x]";
 	$check_uncheck_string = $task['checked'] == 0 ? "Check" : "Uncheck";
 	?>
 	<div class="list-item flex">
