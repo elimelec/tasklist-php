@@ -91,6 +91,7 @@ function page_menu($parent, $add_forms = false) {
 			if ($add_forms) {
 				page_items_new_form($parent, "group");
 				page_items_new_form($parent, "task");
+				page_items_new_serial_form($parent, "serial");
 			}
 			else {
 				page_menu_new_button($parent);
@@ -102,6 +103,23 @@ function page_menu($parent, $add_forms = false) {
 		?>
 	</div>
 	<?php
+}
+
+function page_items_new_serial_form($parent, $type) {
+	$form_data = array(
+		'action' => "add_serial.php" ,
+		'inputs' => array(
+			get_page_form_hidden_input("type", $type),
+			get_page_form_hidden_input("parent", $parent),
+			get_page_form_text_input("item_name", "Serial Name", false),
+			get_page_form_text_input("episodes", "Episodes", false),
+		) ,
+		'submit' => array(
+			'value' => "New",
+			'right' => false ,
+		) ,
+	);
+	page_form($form_data);
 }
 
 function page_items_new_form($parent, $type) {
