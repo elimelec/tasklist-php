@@ -95,13 +95,13 @@ function page_item_serial($serial) {
 			<span class="list-item--name">
 				<?=$serial['name']?>
 			</span>
-		<a href="check/<?=$serial['id']?>">
+		<a href="increment/<?=$serial['id']?>/1">
 			<button>+1</button>
 		</a>
-		<a href="check/<?=$serial['id']?>">
+		<a href="increment/<?=$serial['id']?>/5">
 			<button>+5</button>
 		</a>
-		<a href="check/<?=$serial['id']?>">
+		<a href="increment/<?=$serial['id']?>/10">
 			<button>+10</button>
 		</a>
 		<a href="edit_task/<?=$serial['id']?>">
