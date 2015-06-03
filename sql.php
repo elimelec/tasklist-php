@@ -36,6 +36,8 @@ function assoc_items($result) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		if($row['type'] == "task")
 			$array[] = assoc_items_task($row);
+		elseif ($row['type'] == "serial")
+			$array[] = assoc_items_serial($row);
 		else
 			$array[] = $row;
 	}
@@ -51,6 +53,14 @@ function assoc_items_task($task) {
 	$result = get_item_task($task_id);
 	$task['checked'] = $result['checked'];
 	return $task;
+}
+
+function assoc_items_serial($serial) {
+	$task_id = $serial['id'];
+	$result = get_item_serial($task_id);
+	$serial['current'] = $result['current'];
+	$serial['last'] = $result['last'];
+	return $serial;
 }
 
 function add_serial($name, $type, $parent, $episodes, $user_id) {
@@ -103,6 +113,11 @@ function get_item_hash($hash) {
 }
 
 function get_item_task($task_id) {
+	$sql = "SELECT * FROM items JOIN items_tasks ON item_id = items.id WHERE item_id = $task_id";
+	return assoc_once(query($sql));
+}
+
+function get_item_serial($task_id) {
 	$sql = "SELECT * FROM items JOIN items_tasks ON item_id = items.id WHERE item_id = $task_id";
 	return assoc_once(query($sql));
 }
