@@ -53,6 +53,17 @@ function assoc_items_task($task) {
 	return $task;
 }
 
+function add_episode($name, $type, $parent, $episodes, $user_id) {
+	$hash = md5("web" . $name . $type . $parent . time());
+	$sql = "INSERT INTO items(hash, name, type, parent, user_id) VALUES('$hash', '$name', '$type', $parent, $user_id)";
+	query($sql);
+
+	$new_item = get_item_hash($hash);
+	$item_id = $new_item['id'];
+	$sql = "INSERT INTO items_serials(item_id, last) VALUES ($item_id, $episodes)";
+	query($sql);
+}
+
 function add_item($name, $type, $parent, $user_id) {
 	$hash = md5("web" . $name . $type . $parent . time());
 	$sql = "INSERT INTO items(hash, name, type, parent, user_id) VALUES ('$hash', '$name', '$type', $parent, $user_id)";
