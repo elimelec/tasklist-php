@@ -143,6 +143,21 @@ function set_item_serial_current($serial) {
 	query($sql);
 }
 
+function update_serial($serial) {
+	update_item_name($serial);
+	$last = $serial['last'];
+	$serial_id = $serial['id'];
+	$sql = "UPDATE items_serials SET last = $last WHERE id = $serial_id";
+	query($sql);
+}
+
+function update_item_name($item) {
+	$item_id = $item['id'];
+	$name = $item['name'];
+	$sql = "UPDATE items SET name = '$name' WHERE id = $item_id";
+	query($sql);
+}
+
 function get_item_group($group_id) {
 	$sql = "SELECT * FROM items JOIN items_groups ON item_id = items.id WHERE item_id = $group_id";
 	return assoc_once(query($sql));
