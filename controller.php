@@ -82,6 +82,20 @@ function controller_print_page($request) {
 	<?php
 	};
 
+	$edit_serial = function($serial_id) {
+		$serial = get_item_serial($serial_id);
+		?>
+		<div class="flex">
+			<form action="edit_serial.php" method="post">
+				<input type="hidden" name = "serial_id" value="<?=$serial_id?>">
+				<input type="text" name="serial_name" value="<?=$serial['name']?>" placeholder="Serial Name">
+				<input type="text" name="episodes" value="<?=$serial['last']?>" placeholder="Episodes">
+				<input class="shadow-border button--round button--small" type="submit" value="Save">
+			</form>
+		</div>
+	<?php
+	};
+
 	$edit_group = function($group_id) {
 		$group = get_item_group($group_id);
 		?>
@@ -143,6 +157,9 @@ function controller_print_page($request) {
 	}
 	elseif (preg_match('/^\/edit_group\/([0-9]+)$/', $request, $matches)) {
 		$edit_group($matches[1]);
+	}
+	elseif (preg_match('/^\/edit_serial\/([0-9]+)$/', $request, $matches)) {
+		$edit_serial($matches[1]);
 	}
 	elseif (preg_match('/^\/delete\/([0-9]+)$/', $request, $matches)) {
 		$delete($matches[1]);
