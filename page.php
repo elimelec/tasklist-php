@@ -34,6 +34,9 @@ function page_item($item) {
 		case "task":
 			page_item_task($item);
 			break;
+		case "serial":
+			page_item_serial($item);
+			break;
 	}
 }
 
@@ -74,6 +77,37 @@ function page_item_task($task) {
 			<button>Edit</button>
 		</a>
 		<a href="delete/<?=$task['id']?>">
+			<button>Delete</button>
+		</a>
+	</div>
+<?php
+}
+
+function page_item_serial($serial) {
+	$last = $serial['last'];
+	$current = $serial['current'];
+	$progress = "[$current/$last]";
+	?>
+	<div class="list-item flex">
+			<span class="list-item--checkbox">
+				<?=$progress?>
+			</span>
+			<span class="list-item--name">
+				<?=$serial['name']?>
+			</span>
+		<a href="check/<?=$serial['id']?>">
+			<button>+1</button>
+		</a>
+		<a href="check/<?=$serial['id']?>">
+			<button>+5</button>
+		</a>
+		<a href="check/<?=$serial['id']?>">
+			<button>+10</button>
+		</a>
+		<a href="edit_task/<?=$serial['id']?>">
+			<button>Edit</button>
+		</a>
+		<a href="delete/<?=$serial['id']?>">
 			<button>Delete</button>
 		</a>
 	</div>
