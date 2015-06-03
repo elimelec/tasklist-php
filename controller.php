@@ -115,6 +115,8 @@ function controller_print_page($request) {
 	$increment = function($serial_id, $episodes) {
 		$serial = get_item_serial($serial_id);
 		$serial['current'] += $episodes;
+		if ($serial['current'] > $serial['last'])
+			$serial['current'] = $serial['last'];
 		set_item_serial_current($serial);
 		$parent = $serial['parent'];
 
