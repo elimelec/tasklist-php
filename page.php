@@ -110,7 +110,7 @@ function page_items_new_form($parent, $type) {
 		'inputs' => array(
 			get_page_form_hidden_input("type", $type),
 			get_page_form_hidden_input("parent", $parent),
-			get_page_form_text_input("item_name", "Group Name", false),
+			get_page_form_text_input("item_name", "Name", false),
 		) ,
 		'submit' => array(
 			'value' => "New",
