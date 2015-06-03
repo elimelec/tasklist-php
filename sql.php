@@ -118,7 +118,7 @@ function get_item_task($task_id) {
 }
 
 function get_item_serial($task_id) {
-	$sql = "SELECT * FROM items JOIN items_tasks ON item_id = items.id WHERE item_id = $task_id";
+	$sql = "SELECT * FROM items JOIN items_serials ON item_id = items.id WHERE item_id = $task_id";
 	return assoc_once(query($sql));
 }
 
