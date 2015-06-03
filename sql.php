@@ -53,7 +53,7 @@ function assoc_items_task($task) {
 	return $task;
 }
 
-function add_episode($name, $type, $parent, $episodes, $user_id) {
+function add_serial($name, $type, $parent, $episodes, $user_id) {
 	$hash = md5("web" . $name . $type . $parent . time());
 	$sql = "INSERT INTO items(hash, name, type, parent, user_id) VALUES('$hash', '$name', '$type', $parent, $user_id)";
 	query($sql);
