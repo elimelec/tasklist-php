@@ -136,6 +136,13 @@ function set_item_task_name($task) {
 	query($sql);
 }
 
+function set_item_serial_current($serial) {
+	$current = $serial['current'];
+	$item_id = $serial['item_id'];
+	$sql = "UPDATE items_serials SET current = $current WHERE item_id = $item_id";
+	query($sql);
+}
+
 function get_item_group($group_id) {
 	$sql = "SELECT * FROM items JOIN items_groups ON item_id = items.id WHERE item_id = $group_id";
 	return assoc_once(query($sql));

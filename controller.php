@@ -112,6 +112,15 @@ function controller_print_page($request) {
 		redirect("/items/$parent");
 	};
 
+	$increment = function($serial_id, $episodes) {
+		$serial = get_item_serial($serial_id);
+		$serial['current'] += $episodes;
+		set_item_serial_current($serial);
+		$parent = $serial['parent'];
+
+		redirect("/items/$parent");
+	};
+
 	if (preg_match('/^\/$/', $request)) {
 		$login();
 	}
@@ -138,5 +147,8 @@ function controller_print_page($request) {
 	}
 	elseif (preg_match('/^\/check\/([0-9]+)$/', $request, $matches)) {
 		$check_task($matches[1]);
+	}
+	elseif (preg_match('/^\/increment\/([0-9]+)\/([0-9]+)$/', $request, $matches)) {
+		$increment($matches[1], $matches[2]);
 	}
 }
