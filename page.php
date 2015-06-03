@@ -104,7 +104,7 @@ function page_item_serial($serial) {
 		<a href="increment/<?=$serial['id']?>/10">
 			<button>+10</button>
 		</a>
-		<a href="edit_task/<?=$serial['id']?>">
+		<a href="edit_serial/<?=$serial['id']?>">
 			<button>Edit</button>
 		</a>
 		<a href="delete/<?=$serial['id']?>">
