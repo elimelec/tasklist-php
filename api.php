@@ -21,9 +21,19 @@ function api($request) {
 		extract_user_id($matches[2]);
 		api_items($matches[1]);
 	}
+	elseif (preg_match('/^\/check\/([0-9]+)\/([a-z0-9]+)$/', $request, $matches)) {
+		extract_user_id($matches[2]);
+		api_check_task($matches[1]);
+	}
 	else {
 		echo json_encode("error");
 	}
+}
+
+function api_check_task($id) {
+	$task = get_item_task($id);
+	$task['checked'] = $task['checked'] == 0 ? 1 : 0;
+	set_item_task_check($task);
 }
 
 function login($username, $password) {
