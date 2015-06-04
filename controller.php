@@ -27,16 +27,22 @@ function redirect($url) {
 }
 
 function controller_print_page($request) {
-	function print_page(($page) {
+	function print_page($page) {
+		page_header();
 		$page();
+		page_footer();
 	}
 
 	function print_page_1($page, $arg1) {
+		page_header();
 		$page($arg1);
+		page_footer();
 	}
 
 	function print_page_2($page, $arg1) {
+		page_header();
 		$page($arg1, $arg2);
+		page_footer();
 	}
 
 	$login = function() {
@@ -150,28 +156,28 @@ function controller_print_page($request) {
 	};
 
 	if (preg_match('/^\/$/', $request)) {
-		$login();
+		print_page($login);
 	}
 	elseif (preg_match('/^\/logout$/', $request)) {
 		$logout();
 	}
 	elseif (preg_match('/^\/items$/', $request)) {
-		$items();
+		print_page($items);
 	}
 	elseif (preg_match('/^\/items\/([0-9]+)$/', $request, $matches)) {
-		$items($matches[1]);
+		print_page_1($items, $matches[1]);
 	}
 	elseif (preg_match('/^\/add\/([0-9]+)$/', $request, $matches)) {
-		$add($matches[1]);
+		print_page_1($add, $matches[1]);
 	}
 	elseif (preg_match('/^\/edit_task\/([0-9]+)$/', $request, $matches)) {
-		$edit_task($matches[1]);
+		print_page_1($edit_task, $matches[1]);
 	}
 	elseif (preg_match('/^\/edit_group\/([0-9]+)$/', $request, $matches)) {
-		$edit_group($matches[1]);
+		print_page_1($edit_group, $matches[1]);
 	}
 	elseif (preg_match('/^\/edit_serial\/([0-9]+)$/', $request, $matches)) {
-		$edit_serial($matches[1]);
+		print_page_1($edit_serial, $matches[1]);
 	}
 	elseif (preg_match('/^\/delete\/([0-9]+)$/', $request, $matches)) {
 		$delete($matches[1]);
