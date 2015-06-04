@@ -108,9 +108,17 @@ function api_items($parent) {
 				break;
 			case "task":
 				$action = "/check/$item_id/$hash";
+				$name = $item['name'];
+				$checked = $item['checked'];
+				$checked = $checked == 1 ? "x" : "  ";
+				$item['name'] = "[$checked] $name";
 				break;
 			case "serial":
 				$action = "/increment/$item_id/1/$hash";
+				$name = $item['name'];
+				$current = $item['current'];
+				$last = $item['last'];
+				$item['name'] = "[$current/$last] $name";
 				break;
 		}
 		$item['action'] = "/api".$action;
