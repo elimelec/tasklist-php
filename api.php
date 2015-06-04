@@ -32,6 +32,14 @@ function api($request) {
 	}
 }
 
+function api_increment($id, $episodes) {
+	$serial = get_item_serial($id);
+	$serial['current'] += $episodes;
+	if ($serial['current'] > $serial['last'])
+		$serial['current'] = $serial['last'];
+	set_item_serial_current($serial);
+}
+
 function api_delete($id) {
 	delete_item($id);
 }
