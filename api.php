@@ -9,5 +9,6 @@ function api($request) {
 function api_items($parent) {
 	// FIXME: don't hardcode user id!
 	$items = get_items(1, $parent);
+	header("Content-Type: application/json");
 	echo json_encode($items);
 }
