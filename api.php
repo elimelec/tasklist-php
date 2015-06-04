@@ -43,8 +43,7 @@ function extract_user_id($hash) {
 }
 
 function api_items($parent) {
-	// FIXME: don't hardcode user id!
-	$items = get_items(1, $parent);
+	$items = get_items(get_user_id(), $parent);
 	header("Content-Type: application/json");
 	echo json_encode($items);
 }
