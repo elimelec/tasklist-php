@@ -33,12 +33,15 @@ function api($request) {
 		api_items($matches[1]);
 	}
 	elseif (preg_match('/^\/check\/([0-9]+)\/([a-z0-9]+)$/', $request, $matches)) {
+		extract_user_id($matches[2]);
 		api_check_task($matches[1]);
 	}
 	elseif (preg_match('/^\/delete\/([0-9]+)\/([a-z0-9]+)$/', $request, $matches)) {
+		extract_user_id($matches[2]);
 		api_delete($matches[1]);
 	}
 	elseif (preg_match('/^\/increment\/([0-9]+)\/([0-9]+)\/([a-z0-9]+)$/', $request, $matches)) {
+		extract_user_id($matches[3]);
 		api_increment($matches[1], $matches[2]);
 	}
 	else {
@@ -52,16 +55,26 @@ function api_increment($id, $episodes) {
 	if ($serial['current'] > $serial['last'])
 		$serial['current'] = $serial['last'];
 	set_item_serial_current($serial);
+	$hash = get_hash();
+	$parent = $serial['parent'];
+	redirect("/api/items/$parent/$hash");
 }
 
 function api_delete($id) {
+	$item = get_item($id);
+	$parent = $item['parent'];
 	delete_item($id);
+	$hash = get_hash();
+	redirect("/api/items/$parent/$hash");
 }
 
 function api_check_task($id) {
 	$task = get_item_task($id);
 	$task['checked'] = $task['checked'] == 0 ? 1 : 0;
 	set_item_task_check($task);
+	$hash = get_hash();
+	$parent = $task['parent'];
+	redirect("/api/items/$parent/$hash");
 }
 
 function login($username, $password) {
@@ -70,7 +83,8 @@ function login($username, $password) {
 	if ($user) {
 		$user_id = $user['id'];
 		set_session($hash, $user_id);
-		echo_json(json_encode($hash));
+		$url = "/api/items/0/$hash";
+		echo_json($url);
 	}
 }
 
@@ -96,17 +110,17 @@ function api_items($parent) {
 				$action = "/check/$item_id/$hash";
 				break;
 			case "serial":
-				$action = "/increment/0/$item_id/$hash";
+				$action = "/increment/$item_id/1/$hash";
 				break;
 		}
-		$item['action'] = $action;
-		$item['delete'] = "/delete/$item_id/$hash";
+		$item['action'] = "/api".$action;
+		$item['delete'] = "/api/delete/$item_id/$hash";
 		$new_items[] = $item;
 	}
-	echo_json(json_encode($new_items, JSON_UNESCAPED_SLASHES));
+	echo_json($new_items);
 }
 
-function echo_json($json) {
+function echo_json($thing) {
 	header("Content-Type: application/json");
-	echo $json;
+	echo json_encode($thing, JSON_UNESCAPED_SLASHES);
 }
