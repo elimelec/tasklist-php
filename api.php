@@ -100,6 +100,7 @@ function api_items($parent) {
 				break;
 		}
 		$item['action'] = $action;
+		$item['delete'] = "/delete/$item_id/$hash";
 		$new_items[] = $item;
 	}
 	echo_json(json_encode($new_items, JSON_UNESCAPED_SLASHES));
