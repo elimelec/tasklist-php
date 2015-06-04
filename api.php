@@ -2,6 +2,17 @@
 include_once "sql.php";
 
 $user_id = 0;
+$hash = "";
+
+function get_hash() {
+	global $hash;
+	return $hash;
+}
+
+function set_hash($h) {
+	global $hash;
+	$hash = $h;
+}
 
 function get_user_id() {
 	global $user_id;
@@ -67,10 +78,30 @@ function extract_user_id($hash) {
 	$session = get_session($hash);
 	$user_id = $session['user_id'];
 	set_user_id($user_id);
+	set_hash($hash);
 }
 
 function api_items($parent) {
 	$items = get_items(get_user_id(), $parent);
+	$hash = get_hash();
+	$new_items = array();
+	foreach($items as $item) {
+		$action = "";
+		$item_id = $item['id'];
+		switch ($item['type']) {
+			case "group":
+				$action = "/items/$item_id/$hash";
+				break;
+			case "task":
+				$action = "/check/$item_id/$hash";
+				break;
+			case "serial":
+				$action = "/increment/0/$item_id/$hash";
+				break;
+		}
+		$item['action'] = $action;
+		$new_items[] = $item;
+	}
 	header("Content-Type: application/json");
-	echo json_encode($items);
+	echo json_encode($new_items, JSON_UNESCAPED_SLASHES);
 }
