@@ -39,12 +39,6 @@ function controller_print_page($request) {
 		page_footer();
 	}
 
-	function print_page_2($page, $arg1) {
-		page_header();
-		$page($arg1, $arg2);
-		page_footer();
-	}
-
 	$login = function() {
 		?>
 		<div class="flex">
