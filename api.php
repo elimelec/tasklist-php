@@ -42,7 +42,7 @@ function api($request) {
 		api_increment($matches[1], $matches[2]);
 	}
 	else {
-		echo json_encode("error");
+		echo_json(json_encode("error"));
 	}
 }
 
@@ -70,7 +70,7 @@ function login($username, $password) {
 	if ($user) {
 		$user_id = $user['id'];
 		set_session($hash, $user_id);
-		echo json_encode($hash);
+		echo_json(json_encode($hash));
 	}
 }
 
@@ -102,6 +102,10 @@ function api_items($parent) {
 		$item['action'] = $action;
 		$new_items[] = $item;
 	}
+	echo_json(json_encode($new_items, JSON_UNESCAPED_SLASHES));
+}
+
+function echo_json($json) {
 	header("Content-Type: application/json");
-	echo json_encode($new_items, JSON_UNESCAPED_SLASHES);
+	echo $json;
 }
