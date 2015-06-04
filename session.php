@@ -14,7 +14,10 @@ function get_session_token() {
 session_start();
 $session = get_session(session_id());
 
-if ($_SERVER['REQUEST_URI'] == "/") {
+if (preg_match('/^\/api/', $_SERVER['REQUEST_URI'])) {
+	//Do nothing
+}
+elseif ($_SERVER['REQUEST_URI'] == "/") {
   if ($session) {
 	  redirect("/items");
   }
