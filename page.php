@@ -185,7 +185,7 @@ function page_menu_root_button() {
 	<div class="all-center">
 		<a href="items">
 			<button class="shadow-border button--round button--small">
-				All Lists
+				All
 			</button>
 		</a>
 	</div>
