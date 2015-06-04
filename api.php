@@ -27,6 +27,9 @@ function api($request) {
 	elseif (preg_match('/^\/delete\/([0-9]+)\/([a-z0-9]+)$/', $request, $matches)) {
 		api_delete($matches[1]);
 	}
+	elseif (preg_match('/^\/increment\/([0-9]+)\/([0-9]+)\/([a-z0-9]+)$/', $request, $matches)) {
+		api_increment($matches[1], $matches[2]);
+	}
 	else {
 		echo json_encode("error");
 	}
