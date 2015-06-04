@@ -22,12 +22,18 @@ function api($request) {
 		api_items($matches[1]);
 	}
 	elseif (preg_match('/^\/check\/([0-9]+)\/([a-z0-9]+)$/', $request, $matches)) {
-		extract_user_id($matches[2]);
 		api_check_task($matches[1]);
+	}
+	elseif (preg_match('/^\/delete\/([0-9]+)\/([a-z0-9]+)$/', $request, $matches)) {
+		api_delete($matches[1]);
 	}
 	else {
 		echo json_encode("error");
 	}
+}
+
+function api_delete($id) {
+	delete_item($id);
 }
 
 function api_check_task($id) {
