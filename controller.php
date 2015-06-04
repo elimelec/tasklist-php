@@ -27,6 +27,18 @@ function redirect($url) {
 }
 
 function controller_print_page($request) {
+	function print_page(($page) {
+		$page();
+	}
+
+	function print_page_1($page, $arg1) {
+		$page($arg1);
+	}
+
+	function print_page_2($page, $arg1) {
+		$page($arg1, $arg2);
+	}
+
 	$login = function() {
 		?>
 		<div class="flex">
